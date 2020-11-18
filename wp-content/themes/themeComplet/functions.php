@@ -1,5 +1,6 @@
 <?php 
 if (function_exists('register_nav_menus')) {
+    
     register_nav_menus(
         [
             'principal' => 'Menu principal',
@@ -9,7 +10,7 @@ if (function_exists('register_nav_menus')) {
 }
 
 if (function_exists('register_sidebar')) {
-    
+
     register_sidebar(
         [
             'id' => 'gauche',
