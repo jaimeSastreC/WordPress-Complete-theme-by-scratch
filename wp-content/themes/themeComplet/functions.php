@@ -9,6 +9,7 @@ if (function_exists('register_nav_menus')) {
 }
 
 if (function_exists('register_sidebar')) {
+    
     register_sidebar(
         [
             'id' => 'gauche',
@@ -20,8 +21,6 @@ if (function_exists('register_sidebar')) {
             'after_title' => '</h3>',
         ]
     );
-
-
 
     register_sidebar(
         [
