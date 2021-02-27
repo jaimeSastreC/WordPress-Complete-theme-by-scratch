@@ -13,7 +13,7 @@
 }
 
 .happyforms-upgrade-modal h2 {
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
   padding-bottom: 5px;
   font-size: 1.7em;
 }
@@ -43,9 +43,7 @@
 }
 
 .happyforms-upgrade-modal .happyforms-upgrade-modal__button a.button {
-  padding: 11px 0;
-  width: 235px;
-  max-width: 100%;
+  padding: 11px 22px;
   height: auto;
   font-size: 14px;
   white-space: normal;

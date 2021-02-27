@@ -426,8 +426,7 @@ class HappyForms_Message_Controller {
 
 	public function email_part_visible( $visible, $part, $form, $response ) {
 		$required = happyforms_is_truthy( $part['required'] );
-		$message = array( 'parts' => $response );
-		$value = happyforms_get_email_part_value( $message, $part, $form );
+		$value = happyforms_get_email_part_value( $response, $part, $form );
 
 		if ( false === $required && empty( $value ) ) {
 			$visible = false;

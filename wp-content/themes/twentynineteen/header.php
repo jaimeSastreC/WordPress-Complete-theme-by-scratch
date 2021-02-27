@@ -10,8 +10,7 @@
  * @subpackage Twenty_Nineteen
  * @since Twenty Nineteen 1.0
  */
-?>
-<!doctype html>
+?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />

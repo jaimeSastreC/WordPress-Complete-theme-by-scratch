@@ -1,11 +1,11 @@
 === Contact Form to Manage and respond to conversations with customers — HappyForms ===
 
-Contributors: thethemefoundry
-Tags: contact, contact form, email, feedback form, form, form builder, custom form, lead generation, survey form, quote form
+Contributors: happyforms
+Tags: contact form, contact form plugin, forms, form builder, custom form, intake form, registration form, survey form, quiz form, payment form, newsletter form, giveaway form, fundraising form, donation form, nomination form, order form, questionnaire form, onboarding form, contract form, estimate form, research form, qualitative form, quantitative form, membership form, mobile form, feedback form, release form, inquiry form, request form, evaluation form, RSVP form, reservation form, sales lead form, popup form, quote form, event form, booking form, application form, agreement form, safety form, compliance form, assessment form, sponsorship form, report form, file upload form, satisfaction form
 Requires at least: 4.8
-Tested up to: 5.5.1
+Tested up to: 5.6
 Requires PHP: 5.3
-Stable tag: 1.9.25
+Stable tag: 1.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,20 +82,91 @@ https://www.youtube.com/watch?v=X1snk2vJbXI
 
 == Frequently Asked Questions ==
 
-= Installation =
+= Can you read my replies? =
 
-1. Upload the happy forms folder to the `wp-content/plugins` directory
-2. Activate the plugin through the ‘Plugins’ menu in WordPress
+Heck nah! No one likes peepers. All replies are saved in your WordPress database or sent to your inbox.
 
-= Can I use my own themes? =
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
-Absolutely! HappyForms gets out of the way and is designed to work with any theme.
+= Can I translate forms into my language? =
 
-= Is there a paid version? =
+Absolutely! Every last word read by your respondent can be translated — just type and replace. No extra plugins. No code changes. No fuss.
 
-Yep! HappyForms free isn't going anywhere but for those looking for even more you may be interested in our [HappyForms upgrade plan](https://happyforms.me/upgrade).
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
+
+= Is HappyForms GDPR and CCPA ready? =
+
+Yep! We have a special field for collecting respondents’ consent for things just like this.
+
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
+
+= Is my data safe? Is HappyForms HIPAA compliant? =
+
+Our competitors claim to be HIPAA compliant, but that’s misleading. Those dodgy buggers! Why have a compliant form if your site’s server, connected services and chosen inbox aren’t?
+
+To keep things simple, we say to disable HappyForms from saving replies and instead point replies to an email address hosted by an end-to-end encrypted email service like ProtonMail.
+
+It’s easier than it sounds. Promise. Hit us up if you have questions.
+
+= Does it work on a site not using WordPress? =
+
+Nope. Sorry! We’re for all things WordPress ‘round here.
+
+= Do I need to know how to code? =
+
+Nope. HappyForms has a fancy drag-n-drop builder. But if you find yourself needing to code something, email us. We can help you out with the nerdy stuff.
+
+= Does HappyForms work on all devices? =
+
+Yep! We always recommend building forms on a desktop, but you can fill out a form anywhere — mobile, tablet and desktop.
+
+Sadly no longer compatible with your 90s Tamagotchi.
+
+= Can I connect HappyForms to my favorite services? =
+
+Yep! HappyForms directly connects with reCaptcha, Google Analytics, ActiveCampaign, AWeber, Constant Contact, ConvertKit, Mailchimp, MailerLite, MailPoet, SendFox, SendGrid, Sendinblue, Stripe, PayPal, Zapier and Integromat.
+
+Through Zapier and Integromat, you can connect with services like Shopify, Kajabi, QuickBooks, Xero, WooCommerce, FreshBooks, Gumroad, Gmail, Slack, Discord, Twilio, Google Drive, Dropbox, Google Docs, Evernote, OneDrive, Airtable, Teachable, GitHub, ClickFunnels, Facebook Pages, Google Calendar, Trello, Calendly, Klaviyo, Asana, Basecamp, HubSpot, Zoho, Acuity Scheduling, Salesforce, Zendesk, Intercom, Wrike, ClickUp, Freshdesk, LiveChat, Drift, Jira, ScheduleOnce, Pipedrive and thousands more.
+
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
+
+= What types of forms can I build? =
+
+Just about anything. A contact form, intake form, registration form, survey form, quiz form, payment form, newsletter form, giveaway form, fundraising form, donation form, nomination form, order form, questionnaire form, onboarding form, contract form, estimate form, research form, qualitative form, quantitative form, membership form, mobile form, feedback form, release form, inquiry form, request form, evaluation form, RSVP form, reservation form, sales lead form, popup form, quote form, event form, booking form, application form, agreement form, safety form, pdf form, compliance form, assessment form, sponsorship form, report form, file upload form, satisfaction form, volunteer registration form, personality quiz form, calculator form — you name it.
+
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
+
+= Does it work with my favorite theme and plugins? =
+
+Abso-freakin-lutely! We’re always checking to make sure HappyForms plays nicely with popular themes like Divi, Astra, Avada, Genesis, GeneratePress, Enfold, Flatsome and OceanWP, and popular plugins like Yoast SEO, Elementor, WooCommerce, Jetpack, Wordfence, UpdraftPlus, MonsterInsights, WP Super Cache, Smush, W3 Total Cache, Loco Translate, SiteOrigin and Popup Maker.
+
+Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
 == Changelog ==
+
+= 1.10.0 =
+* New feature: Messages tab in Edit Form screen allows for complete language customization.
+* New feature: Prefill control for setting a default value on Short Text, Long Text, Email Address and Number fields.
+* Bugfix: "Email respondent a copy of their submission" → "Include submitted" feature was misbehaving.
+
+= 1.9.30 =
+* Improvement: Better styling control for choice fields option labels.
+
+= 1.9.29 =
+* Meta: updated FAQs and contributors.
+
+= 1.9.28 =
+* Improvement: Better naming of form class attributes.
+* Bugfix: Edit Form screen wouldn't work with custom Site Address settings.
+
+= 1.9.27 =
+* Improvement: Form title is not rendered at all when set to "hidden".
+* Bugfix: Fields with prefix and suffix support where being validated as always filled.
+
+= 1.9.26 =
+* Improvement: Style → Additional CSS now updates preview in realtime.
+* Improvement: Added filter to force style output for compatibility with 3rd party plugins.
+* Bugfix: Hidden form title was being displayed in widget previews.
 
 = 1.9.25 =
 * Bugfix: "Fields Borders & Spacing" → "Inner Spacing" control was unresponsive.
@@ -678,6 +749,24 @@ Yep! HappyForms free isn't going anywhere but for those looking for even more yo
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.10.0 =
+* New Messages tab, Prefill control, miscellaneous bugfixes.
+
+= 1.9.30 =
+* Minor improvements and bugfixes.
+
+= 1.9.29 =
+* FAQs and contributors updates.
+
+= 1.9.28 =
+* Minor bugfixes and improvements.
+
+= 1.9.27 =
+* Minor bugfixes and improvements.
+
+= 1.9.26 =
+* Realtime Additional CSS preview, new filters and bugfixes.
 
 = 1.9.25 =
 * New "Prefix" control in Email field, performance improvements and bugfixes.

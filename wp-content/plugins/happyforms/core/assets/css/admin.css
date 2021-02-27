@@ -129,7 +129,6 @@ p.happyforms-message-nav span.divider:last-child {
   padding: 5px 7px;
   margin: 0 1px;
 }
-
 /**
  *
  * Tracking page
@@ -207,7 +206,7 @@ p.welcome-panel-footer a:active {
 }
 
 #available-widgets div[id*='widget-tpl-happyforms_widget-'] .widget-title:before {
-  content: '\f130';
+  content: '\f175';
 }
 
 .happyforms-editor-button span.dashicons {
@@ -245,6 +244,12 @@ p.welcome-panel-footer a:active {
 
 .happyforms-dialog .ui-dialog-titlebar {
   border: 0;
+}
+
+.happyforms-dialog .ui-dialog-titlebar-close {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
 }
 
 #happyforms-notice-happyforms_form_saved_guide {

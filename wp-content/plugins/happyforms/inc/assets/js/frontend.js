@@ -227,6 +227,12 @@
 
 			this.$el.trigger( 'happyforms-change' );
 			this.$el.trigger( 'happyforms-init' );
+
+			// Reset in case of previous initialization
+			this.$form.off( 'submit' );
+			this.$submit.off( 'click' );
+			this.$submitLinks.off( 'click' );
+
 			this.$form.submit( this.submit.bind( this ) );
 			this.$submit.click( this.buttonSubmit.bind( this ) );
 			this.$submitLinks.click( this.linkSubmit.bind( this ) );

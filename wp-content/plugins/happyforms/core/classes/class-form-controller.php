@@ -51,6 +51,7 @@ class HappyForms_Form_Controller {
 		add_action( 'delete_post', array( $this, 'delete_post' ) );
 
 		add_action( 'happyforms_form_before', array( $this, 'render_title' ) );
+		add_filter( 'happyforms_the_form_title', array( $this, 'the_form_title' ), 10, 4 );
 	}
 
 	/**
@@ -534,6 +535,9 @@ class HappyForms_Form_Controller {
 
 		$post_data = array_intersect_key( $validated_data, $this->get_defaults( 'post' ) );
 		$meta_data = array_intersect_key( $validated_data, $this->get_defaults( 'meta' ) );
+
+		$meta_data = apply_filters( 'happyforms_validate_meta_data', $meta_data );
+
 		$meta_data = happyforms_prefix_meta( $meta_data );
 
 		// Flatten data to make it filterable
@@ -802,6 +806,14 @@ class HappyForms_Form_Controller {
 		do_action( 'happyforms_before_title', $form );
 		happyforms_the_form_title( $form );
 		do_action( 'happyforms_after_title', $form );
+	}
+
+	public function the_form_title( $form_title, $before, $after, $form ) {
+		if ( 'happyforms-form--hide-title' === happyforms_get_form_property( $form, 'form_title' ) ) {
+			$form_title = '';
+		}
+
+		return $form_title;
 	}
 
 	public function get_default_steps( $form ) {

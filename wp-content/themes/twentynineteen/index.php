@@ -19,7 +19,7 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-		<div align="center">index.php</div>
+
 		<?php
 		if ( have_posts() ) {
 

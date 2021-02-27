@@ -77,9 +77,14 @@
 		},
 
 		changeDocumentTitle: function() {
+			var title = $( 'title' ).text();
+			var newTitle = '';
+
+			newTitle = title.replace( title.substring( 0, title.indexOf( ':' ) ), 'Form' );
+			$( 'title' ).text( newTitle );
+
 			var formTitle = this.get( 'post_title' );
-			_wpCustomizeSettings.documentTitleTmpl = 'HappyForms: %s';
-			var titleTemplate = 'HappyForms';
+			var titleTemplate = 'Form';
 
 			if ( formTitle ) {
 				titleTemplate = titleTemplate + ': ' + formTitle;
@@ -171,9 +176,10 @@
 			'setup': 'setup',
 			'email': 'email',
 			'style': 'style',
+			'messages': 'messages',
 		},
 
-		steps: [ 'build', 'setup', 'email', 'style' ],
+		steps: [ 'build', 'setup', 'email', 'style', 'messages' ],
 		previousRoute: '',
 		currentRoute: 'build',
 		savedStates: {
@@ -185,6 +191,9 @@
 				'scrollTop': 0,
 			},
 			'email': {
+				'scrollTop': 0,
+			},
+			'messages': {
 				'scrollTop': 0,
 			},
 			'style': {
@@ -263,6 +272,9 @@
 					break;
 				case 'style':
 					childView = new classes.views.FormStyle( { model: this.form } );
+					break;
+				case 'messages':
+					childView = new classes.views.FormMessages( { model: this.form } );
 					break;
 			}
 
@@ -641,15 +653,11 @@
 				}.bind( this ),
 			} );
 
-			$( '.happyforms-widget-expanded input[data-bind=label]', this.$el ).focus();
-
 			this.drawer = new classes.views.PartsDrawer();
 			$( '.wp-full-overlay' ).append( this.drawer.render().$el );
 
 			if ( -1 === happyForms.savedStates.build.activePartIndex ) {
 				$( '#happyforms-form-name', this.$el ).focus().select();
-			} else {
-				$( '.happyforms-widget:eq(' + happyForms.savedStates.build.activePartIndex + ')' ).addClass( 'happyforms-widget-expanded' );
 			}
 		},
 
@@ -820,16 +828,16 @@
 			}, this ) );
 		},
 
-		onPartViewsSorted: function( partViews ) {	
-			var $stage = $( '.happyforms-form-widgets', this.$el );	
+		onPartViewsSorted: function( partViews ) {
+			var $stage = $( '.happyforms-form-widgets', this.$el );
 
-			partViews.forEach( function( partViewModel ) {	
-				var partView = partViewModel.get( 'view' );	
-				var $partViewEl = partView.$el;	
-				$partViewEl.detach();	
-				$stage.append( $partViewEl );	
-				partView.trigger( 'refresh' );	
-			}, this );	
+			partViews.forEach( function( partViewModel ) {
+				var partView = partViewModel.get( 'view' );
+				var $partViewEl = partView.$el;
+				$partViewEl.detach();
+				$stage.append( $partViewEl );
+				partView.trigger( 'refresh' );
+			}, this );
 		},
 
 		onPartViewsChanged: function( partViews ) {
@@ -1002,6 +1010,7 @@
 			this.listenTo( this.model, 'change:required', this.onRequiredCheckboxChange );
 			this.listenTo( this.model, 'change:placeholder', this.onPlaceholderChange );
 			this.listenTo( this.model, 'change:description', this.onDescriptionChange );
+			this.listenTo( this.model, 'change:default_value', this.onDefaultValueChange );
 			//this.listenTo( this.model, 'change:description_mode', this.onDescriptionModeChange );
 			this.listenTo( this.model, 'change:label_placement', this.onLabelPlacementChange );
 			this.listenTo( this.model, 'change:css_class', this.onCSSClassChange );
@@ -1222,6 +1231,22 @@
 			var data = {
 				id: this.model.id,
 				callback: 'onPlaceholderChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-part-dom-update', data );
+		},
+
+		/**
+		 * Send changed default value to previewer.
+		 *
+		 * @since 1.0.0.
+		 *
+		 * @return void
+		 */
+		onDefaultValueChange: function() {
+			var data = {
+				id: this.model.id,
+				callback: 'onDefaultValueChangeCallback',
 			};
 
 			happyForms.previewSend( 'happyforms-part-dom-update', data );
@@ -1505,7 +1530,6 @@
 			'keyup [data-attribute]': 'onInputChange',
 			'change [data-attribute]': 'onInputChange',
 			'change input[type=number]': 'onNumberChange',
-			'keyup input[data-attribute="optional_part_label"]': 'onOptionalPartLabelChange',
 		} ),
 
 		pointers: {},
@@ -1592,14 +1616,6 @@
 			happyForms.previewSend( 'happyforms-submit-button-text-update', value );
 		},
 
-		onOptionalPartLabelChange: function( e ) {
-			var data = {
-				callback: 'onOptionalPartLabelChangeCallback',
-			};
-
-			happyForms.previewSend( 'happyforms-form-dom-update', data );
-		},
-
 		setOptionalLabelVisibility: function() {
 			var optionalParts = this.model.get( 'parts' ).find( function( model, index, parts ) {
 				return ( '' !== parts[index].get( 'required' ) && 1 !== parts[index].get( 'required' ) );
@@ -1672,6 +1688,250 @@
 
 			this.$el.addClass( partClasses );
 		},
+	} );
+
+	classes.views.FormMessages = classes.views.FormSetup.extend( {
+		template: '#happyforms-form-messages-template',
+
+		events: _.extend( {}, classes.views.Base.prototype.events, {
+			'keyup [data-attribute]': 'onInputChange',
+			'change [data-attribute]': 'onInputChange',
+			'keyup [data-attribute="optional_part_label"]': 'onOptionalPartLabelChange',
+			'change [data-attribute="optional_part_label"]': 'onOptionalPartLabelChange',
+			'keyup [data-attribute="submit_button_label"]': 'onSubmitButtonLabelChange',
+			'change [data-attribute="submit_button_label"]': 'onSubmitButtonLabelChange',
+			'focus .has-restore-default': 'showRestoreBtn',
+			'click .restore-default-btn': 'resetValidationMessage',
+			'keyup [data-attribute="words_label_min"]': 'onCharLimitMinWordsChange',
+			'change [data-attribute="words_label_min"]': 'onCharLimitMinWordsChange',
+			'keyup [data-attribute="words_label_max"]': 'onCharLimitMaxWordsChange',
+			'change [data-attribute="words_label_max"]': 'onCharLimitMaxWordsChange',
+			'keyup [data-attribute="characters_label_min"]': 'onCharLimitMinCharsChange',
+			'change [data-attribute="characters_label_min"]': 'onCharLimitMinCharsChange',
+			'keyup [data-attribute="characters_label_max"]': 'onCharLimitMaxCharsChange',
+			'change [data-attribute="characters_label_max"]': 'onCharLimitMaxCharsChange',
+			'keyup [data-attribute="no_results_label"]': 'onNoResultsLabelChange',
+			'change [data-attribute="no_results_label"]': 'onNoResultsLabelChange',
+		} ),
+
+		editors: {
+		},
+
+		initialize: function() {
+			classes.views.Base.prototype.initialize.apply( this, arguments );
+		},
+
+		render: function() {
+			this.setElement( this.template( this.model.toJSON() ) );
+			classes.views.FormSetup.prototype.render.apply( this, arguments );
+			this.applyMsgConditionClasses();
+
+			return this;
+		},
+
+		applyMsgConditionClasses: function() {
+			var self = this;
+
+			var partTypes = happyForms.form.get( 'parts' ).map( function( model ) {
+				return model.get( 'type' );
+			} );
+
+			partTypes = _.union( partTypes );
+
+			for ( var i = 0; i < partTypes.length; i++ ) {
+				var className = 'has-' + partTypes[i];
+
+				if ( self.$el.hasClass( className ) ) {
+					className = className + '-part';
+				}
+
+				self.$el.addClass( className );
+			}
+
+			var hasRequiredField = this.model.get( 'parts' ).find( function( part ) {
+				var types = [ 'single_line_text', 'multi_line_text', 'email',  'number' ];
+				var required = part.get( 'required' );
+
+				if ( required == 1 ) {
+					var type = part.get( 'type' );
+					return ( $.inArray( type, types ) > -1 );
+				}
+
+				return false;
+			} );
+
+			if ( hasRequiredField ) {
+				self.$el.addClass( 'has-required-fields' );
+			}
+
+
+			var hasRequiredSelectionField = this.model.get( 'parts' ).find( function( part ) {
+				var types = [ 'radio', 'checkbox', 'select' ];
+				var required = part.get( 'required' );
+
+				if ( required == 1 ) {
+					var type = part.get( 'type' );
+					return ( $.inArray( type, types ) > -1 );
+				}
+
+				return false;
+			} );
+
+			if( hasRequiredSelectionField ) {
+				self.$el.addClass( 'has-required-selection-fields' );
+			}
+
+			if ( happyForms.form.get( 'parts' ).length > 0 ) {
+				self.$el.addClass( 'has-field' );
+			}
+
+			var optionalPart = this.model.get( 'parts' ).find( function( part ) {
+				var part_required = part.get( 'required' );
+
+				return ( part_required == 0 || part_required == '' );
+			} );
+
+			if ( optionalPart ) {
+				self.$el.addClass( 'has-optional-field' );
+			}
+
+			var hasConfirmField = happyForms.form.get( 'parts' ).findWhere( {
+				confirmation_field: 1
+			} );
+
+			if ( hasConfirmField ) {
+				self.$el.addClass( 'has-confirm-field' );
+			}
+
+			var confirmSubmission = happyForms.form.get( 'confirm_submission' );
+
+			if ( confirmSubmission == 'success_message_hide_form' || confirmSubmission == 'success_message' ) {
+				self.$el.addClass( 'is-show-success-msg' );
+			}
+
+			var hasMinWords = happyForms.form.get( 'parts' ).findWhere( {
+				limit_input: 1,
+				character_limit_mode: 'word_min'
+			} );
+
+			if ( hasMinWords ) {
+				self.$el.addClass( 'has-min-words-label' );
+			}
+
+			var hasMaxWords = happyForms.form.get( 'parts' ).findWhere( {
+				limit_input: 1,
+				character_limit_mode: 'word_max'
+			} );
+
+			if ( hasMaxWords ) {
+				self.$el.addClass( 'has-max-words-label' );
+			}
+
+			var hasMinChars = happyForms.form.get( 'parts' ).findWhere( {
+				limit_input: 1,
+				character_limit_mode: 'character_min'
+			} );
+
+			if ( hasMinChars ) {
+				self.$el.addClass( 'has-min-chars-label' );
+			}
+
+			var hasMaxChars = happyForms.form.get( 'parts' ).findWhere( {
+				limit_input: 1,
+				character_limit_mode: 'character_max'
+			} );
+
+			if ( hasMaxChars ) {
+				self.$el.addClass( 'has-max-chars-label' );
+			}
+
+			var showMsgShortLabel = happyForms.form.get( 'parts' ).find( function( part ) {
+				var limit_mode = part.get( 'character_limit_mode' );
+
+				if( limit_mode ) {
+					if( part.get( 'limit_input' ) == 1 && ( limit_mode == 'character_min' || limit_mode == 'word_min' ) && 
+						part.get( 'character_limit' ) > 1 ) {
+						return true;
+					}
+				}
+			} );
+
+			if ( showMsgShortLabel ) {
+				self.$el.addClass( 'show-msg-short-label' );
+			}
+
+			var hasSearchableDropdown = happyForms.form.get( 'parts' ).findWhere( {
+				allow_search: 1
+			} );
+
+			if ( hasSearchableDropdown ) {
+				self.$el.addClass( 'has-searchable-dropdown' );
+			}
+
+		},
+
+		ready: function() {
+			var self = this;
+			this.$inputRestoreBtns = $( '.restore-default-btn' );
+
+			var defaultEditorSettings = {
+			};
+
+		},
+
+
+		onSubmitButtonLabelChange: function( e ) {
+
+			happyForms.previewSend( 'happyforms-submit-button-text-update', $( e.target ).val() );
+		},
+
+		onOptionalPartLabelChange: function( e ) {
+			var data = {
+				callback: 'onOptionalPartLabelChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+
+		onCharLimitMinWordsChange: function ( e ) {
+			var data = {
+				callback: 'onCharLimitMinWordsChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+
+		onCharLimitMaxWordsChange: function ( e ) {
+			var data = {
+				callback: 'onCharLimitMaxWordsChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+
+		onCharLimitMinCharsChange: function ( e ) {
+			var data = {
+				callback: 'onCharLimitMinCharsChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+
+		onCharLimitMaxCharsChange: function ( e ) {
+			var data = {
+				callback: 'onCharLimitMaxCharsChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+		onNoResultsLabelChange: function( e ) {
+			var data = {
+				callback: 'onNoResultsLabelChangeCallback',
+			};
+
+			happyForms.previewSend( 'happyforms-form-dom-update', data );
+		},
+
 	} );
 
 	classes.views.FormStyle = classes.views.Base.extend( {
@@ -1778,7 +2038,7 @@
 			happyForms.form.set( attribute, value );
 
 			var partAttribute = '';
-			
+
 			switch ( attribute ) {
 				case 'part_description_mode':
 					partAttribute = 'description_mode';
@@ -2203,6 +2463,32 @@
 			$( '.happyforms-optional', $form ).text( optionalLabel );
 		},
 
+		onCharLimitMinWordsChangeCallback: function( $form ) {
+			var label = happyForms.form.get( 'words_label_min' );
+			$( '.happyforms-part__char-counter.word_min span.counter-label', $form ).text( label );
+		},
+
+		onCharLimitMaxWordsChangeCallback: function( $form ) {
+			var label = happyForms.form.get( 'words_label_max' );
+			$( '.happyforms-part__char-counter.word_max span.counter-label', $form ).text( label );
+		},
+
+		onCharLimitMinCharsChangeCallback: function( $form ) {
+			var label = happyForms.form.get( 'characters_label_min' );
+			$( '.happyforms-part__char-counter.character_min span.counter-label', $form ).text( label );
+		},
+
+		onCharLimitMaxCharsChangeCallback: function( $form ) {
+			var label = happyForms.form.get( 'characters_label_max' );
+			$( '.happyforms-part__char-counter.character_max span.counter-label', $form ).text( label );
+		},
+
+		onNoResultsLabelChangeCallback: function( $form ) {
+			var label = happyForms.form.get( 'no_results_label' );
+
+			$( 'li.happyforms-custom-select-dropdown__not-found', $form ).text( label );
+		},
+
 		/**
 		 *
 		 * Previewer callbacks for live part DOM updates
@@ -2267,6 +2553,13 @@
 			var $description = this.$( '.happyforms-part__description', $part );
 
 			$description.text(description);
+		},
+
+		onDefaultValueChangeCallback: function( id, $part ) {
+			var part = happyForms.form.get( 'parts' ).get( id );
+			var default_value = part.get( 'default_value' );
+
+			$part.find( ':input' ).val( default_value );
 		},
 
 		onDescriptionModeChangeCallback: function( id, html ) {

@@ -14,22 +14,9 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-		<div align="center">page.php</div>
-			<?php
-			
-	/* 		$dest = "siri.learning.spanish@gmail.com";
-			$sujet = "Email de test";
-			$corp = "Salut ceci est un email de test envoyer par le site de Siri language";
-			$headers = "From: siri.learning.spanish@gmail.com";
 
-			//wp_mail( $to, $subject, $message, $headers, $attachments );
-			//if (mail($dest, $sujet, $corp, $headers)) {
-			if (wp_mail($dest, $sujet, $corp, $headers)) {
-			  echo "Email envoyé avec succès à $dest ...";
-			} else {
-			  echo "Échec de l'envoi de l'email...";
-			} */
-		  
+			<?php
+
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post();

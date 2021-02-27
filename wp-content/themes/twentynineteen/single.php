@@ -14,7 +14,7 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-			<div align="center">single.php</div>
+
 			<?php
 
 			// Start the Loop.

@@ -31,6 +31,7 @@ class HappyForms_WP_Customize_Form_Manager {
 		add_action( 'wp_ajax_happyforms-form-part-add', array( $this, 'ajax_form_part_add' ) );
 		add_action( 'wp_ajax_happyforms-form-parts-add', array( $this, 'ajax_form_parts_add' ) );
 		add_action( 'wp_ajax_happyforms-form-fetch-partial-html', array( $this, 'ajax_fetch_partial' ) );
+		add_action( 'wp_ajax_happyforms-get-custom-css', array( $this, 'ajax_get_custom_css' ) );
 	}
 
 	/**
@@ -165,12 +166,12 @@ class HappyForms_WP_Customize_Form_Manager {
 			$notice_content = '';
 			$notice_content .= '<h3>' . __( 'Form saved 👏', 'happyforms' ) . '</h3>';
 			$notice_content .= '<p>' . __( 'There are two ways to embed your form. Here goes…', 'happyforms' ) . '</p>';
-			$notice_content .= '<h4>' . __( 'Add HappyForms to your page or post', 'happyforms' ) . '</h4>';
-			$notice_content .= '<ol><li>' . __( 'In your Edit Post / Edit Page screen, click Add Block.', 'happyforms' ) . '</li><li>' . __( 'Select the HappyForms content block.', 'happyforms' ) . '</li><li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li><li> ' . __( 'That\'s it! You\'ll see a basic preview of your form in the editor.', 'happyforms' ) . '</li></ol>';
-			$notice_content .= '<h4>' . __( 'Use HappyForms in a widget area', 'happyforms' ) . '</h4>';
+			$notice_content .= '<h4>' . __( 'Add your form to a page or post', 'happyforms' ) . '</h4>';
+			$notice_content .= '<ol><li>' . __( 'In your Edit Post / Edit Page screen, click Add Block.', 'happyforms' ) . '</li><li>' . __( 'Select the Forms content block.', 'happyforms' ) . '</li><li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li><li> ' . __( 'That\'s it! You\'ll see a basic preview of your form in the editor.', 'happyforms' ) . '</li></ol>';
+			$notice_content .= '<h4>' . __( 'Use your form in a widget area', 'happyforms' ) . '</h4>';
 			$notice_content .= '<ol>';
 			$notice_content .= '<li>' . sprintf( __( 'Head over to Appearance &rarr; <a href="%s">Widgets</a> screen.', 'happyforms' ), get_site_url( NULL, 'wp-admin/widgets.php' ) ) . '</li>';
-			$notice_content .= '<li>' . __( 'Drag the HappyForms widget to your sidebar.', 'happyforms' ) .'</li>';
+			$notice_content .= '<li>' . __( 'Drag the Forms widget to your sidebar.', 'happyforms' ) .'</li>';
 			$notice_content .= '<li>' . __( 'Select a form in the Form dropdown.', 'happyforms' ) . '</li>';
 			$notice_content .= '<li>' . __( 'All done!', 'happyforms' ) . '</li>';
 			$notice_content .= '</ol>';
@@ -340,7 +341,7 @@ class HappyForms_WP_Customize_Form_Manager {
 		$data = array(
 			'form' => $this->get_current_form(),
 			'formParts' => $this->library->get_parts(),
-			'baseUrl' => get_site_url( null, '/' ),
+			'baseUrl' => get_home_url( null, '/' ),
 		);
 
 		wp_localize_script( 'happyforms-customize', '_happyFormsSettings', $data );
@@ -393,6 +394,32 @@ class HappyForms_WP_Customize_Form_Manager {
 		exit();
 	}
 
+	public function ajax_get_custom_css() {
+		if ( ! check_ajax_referer( 'happyforms', 'happyforms-nonce', false ) ) {
+			status_header( 400 );
+			wp_send_json_error( 'bad_nonce' );
+		}
+
+		if ( ! current_user_can( 'customize' ) ) {
+			status_header( 403 );
+			wp_send_json_error( 'customize_not_allowed' );
+		}
+
+		if ( ! isset( $_POST['form'] ) || empty( $_POST['form'] ) ) {
+			status_header( 403 );
+			wp_send_json_error( 'empty form data' );
+		}
+
+		$form = json_decode( wp_unslash( $_POST['form'] ), true );
+		$additional_css = $form['additional_css'];
+		$form_wrapper_id = happyforms_get_form_wrapper_id( $form );
+		$additional_css = happyforms_get_prefixed_css( $additional_css, "#{$form_wrapper_id}" );
+
+		header( 'Content-type: text/plain' );
+		echo ( $additional_css );
+		exit();
+	}
+
 	/**
 	 * Action: output Javascript templates for the form editing interface.
 	 *
@@ -414,6 +441,7 @@ class HappyForms_WP_Customize_Form_Manager {
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-parts-drawer.php' );
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-style.php' );
 		require_once( happyforms_get_core_folder() . '/templates/customize-form-email.php' );
+		require_once( happyforms_get_core_folder() . '/templates/customize-form-messages.php' );
 
 		_WP_Editors::print_default_editor_scripts();
 	}

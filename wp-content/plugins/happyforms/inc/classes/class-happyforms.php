@@ -112,13 +112,6 @@ class HappyForms extends HappyForms_Core {
 			'tooltip' => __( 'Protect your form against bots using your Google ReCaptcha credentials.', 'happyforms' ),
 		);
 
-		$controls[1550] = array(
-			'type' => 'checkbox_dummy',
-			'dummy_id' => 'require_password',
-			'label' => __( 'Require password', 'happyforms' ),
-			'tooltip' => __( 'Only users with password will be able to view and submit the form.', 'happyforms' ),
-		);
-
 		$controls[1590] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'open_in_overlay_window',
@@ -136,28 +129,21 @@ class HappyForms extends HappyForms_Core {
 		$controls[1660] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'save_abandoned_responses',
-			'label' => __( 'Save abandoned forms', 'happyforms' ),
+			'label' => __( 'Save incomplete and abandoned submissions', 'happyforms' ),
 			'tooltip' => __( 'Keep incomplete users responses stored in your WordPress database.', 'happyforms' ),
 		);
 
 		$controls[1661] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'save_and_resume_submissions',
-			'label' => __( 'Allow save and resume', 'happyforms' ),
+			'label' => __( 'Let respondents save a draft submission and come back to it later', 'happyforms' ),
 			'tooltip' => __( 'Let users temporarily save their incomplete response and continue filling out the form at a later time.', 'happyforms' ),
-		);
-
-		$controls[1691] = array(
-			'type' => 'checkbox_dummy',
-			'dummy_id' => 'unique_id',
-			'label' => __( 'Add submission identifier', 'happyforms' ),
-			'tooltip' => __( 'Tag responses with a unique, incremental identifier.', 'happyforms' ),
 		);
 
 		$controls[1800] = array(
 			'type' => 'checkbox_dummy',
 			'dummy_id' => 'preview_before_submit',
-			'label' => __( 'Preview before submit', 'happyforms' ),
+			'label' => __( 'Require respondents to review a submission before submitting', 'happyforms' ),
 			'tooltip' => __( 'Let your users review their submission before confirming it.', 'happyforms' ),
 		);
 

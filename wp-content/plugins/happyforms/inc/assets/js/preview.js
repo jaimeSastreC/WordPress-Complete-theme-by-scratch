@@ -217,6 +217,10 @@
 		$( '.happyforms-button--submit' ).attr( 'value', text );
 	}
 
+	handlers.customCSSUpdated = function( css ) {
+		$( '[data-happyforms-additional-css]' ).html( css );
+	}
+
 	handlers.silenceEvent = function( e ) {
 		e.preventDefault();
 	}
@@ -256,6 +260,7 @@
 		api.preview.bind( 'happyforms-form-class-update', handlers.formClassUpdate );
 		api.preview.bind( 'happyforms-form-class-updated', handlers.formClassUpdated );
 		api.preview.bind( 'happyforms-submit-button-text-update', handlers.submitButtonTextUpdate );
+		api.preview.bind( 'happyforms-custom-css-updated', handlers.customCSSUpdated );
 
 		// Bind DOM handlers
 		$( document.body ).on(

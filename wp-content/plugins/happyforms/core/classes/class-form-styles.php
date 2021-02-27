@@ -38,10 +38,11 @@ class HappyForms_Form_Styles {
 	public function hook() {
 		add_filter( 'happyforms_meta_fields', array( $this, 'meta_fields' ) );
 		add_filter( 'happyforms_form_class', array( $this, 'form_html_class' ), 10, 2 );
+		add_filter( 'happyforms_form_class', array( $this, 'form_html_class_title_display' ), 10, 2 );
+		add_filter( 'happyforms_form_class', array( $this, 'form_html_class_compat' ), PHP_INT_MAX, 2 );
 		add_filter( 'happyforms_get_form_data', array( $this, 'control_global_label_settings') );
 		add_filter( 'happyforms_get_form_data', array( $this, 'control_global_description_settings') );
 		add_action( 'happyforms_do_style_control', array( $this, 'do_control' ), 10, 3 );
-
 	}
 
 	public function get_fields() {
@@ -90,7 +91,7 @@ class HappyForms_Form_Styles {
 					'' => __( 'Show', 'happyforms' ),
 					'happyforms-form--hide-title' => __( 'Hide', 'happyforms' )
 				),
-				'target' => 'form_class',
+				'target' => '',
 				'sanitize' => 'sanitize_text_field'
 			),
 			'form_title_alignment' => array(
@@ -716,17 +717,17 @@ class HappyForms_Form_Styles {
 			),
 			3000 => array(
 				'type' => 'buttonset',
-				'label' => __( 'Description alignment', 'happyforms' ),
+				'label' => __( 'Hint alignment', 'happyforms' ),
 				'field' => 'part_description_alignment'
 			),
 			3100 => array(
 				'type' => 'range',
-				'label' => __( 'Description font size', 'happyforms' ),
+				'label' => __( 'Hint font size', 'happyforms' ),
 				'field' => 'part_description_font_size',
 			),
 			3101 => array(
 				'type' => 'custom-select',
-				'label' => __( 'Description display', 'happyforms' ),
+				'label' => __( 'Hint display', 'happyforms' ),
 				'field' => 'part_description_mode',
 			),
 			3200 => array(
@@ -761,7 +762,7 @@ class HappyForms_Form_Styles {
 			),
 			3701 => array(
 				'type' => 'color',
-				'label' => __( 'Description', 'happyforms' ),
+				'label' => __( 'Hint', 'happyforms' ),
 				'field' => 'color_part_description',
 			),
 			3800 => array(
@@ -1055,6 +1056,33 @@ class HappyForms_Form_Styles {
 				$class[] = $form[$key];
 			}
 		}
+
+		return $class;
+	}
+
+	public function form_html_class_title_display( $class, $form ) {
+		if ( happyforms_is_preview() ) {
+			$class[] = $form['form_title'];
+		}
+		
+		return $class;
+	}
+
+	public function form_html_class_compat( $class, $form ) {
+		$class = array_unique( $class );
+		$class = array_flip( $class );
+
+		if ( isset( $class['standard'] ) ) {
+			unset( $class['standard'] );
+			$class['happyforms-part-description-mode-standard'] = '';
+		}
+
+		if ( isset( $class['tooltip'] ) ) {
+			unset( $class['tooltip'] );
+			$class['happyforms-part-description-mode-tooltip'] = '';
+		}
+
+		$class = array_flip( $class );
 
 		return $class;
 	}

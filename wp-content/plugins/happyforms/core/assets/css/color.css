@@ -221,10 +221,6 @@
   position: relative;
 }
 
-.happyforms-styles .happyforms-part-wrap--confirmation {
-  margin-top: 10px;
-}
-
 /* parts - option labels */
 
 .happyforms-styles .happyforms-part .option-label {
@@ -268,7 +264,7 @@
   font-size: 16px;
   font-size: var(--happyforms-part-value-font-size);
   color: #000;
-  color: var(--happyforms-color-part-value);
+  color: var(--happyforms-color-part-description);
 }
 
 .happyforms-styles .happyforms-part-option__description {
@@ -464,7 +460,7 @@
   color: var(--happyforms-color-submit-text);
 }
 
-.happyforms-visuallyhidden {
+.happyforms-styles .happyforms-visuallyhidden {
   position: absolute;
   border: 0;
   clip: rect(0 0 0 0);
@@ -676,10 +672,9 @@
   color: var(--happyforms-color-part-placeholder);
 }
 
-.happyforms-styles .happyforms-part--label-as_placeholder input:focus~label .label,
-.happyforms-styles .happyforms-part--label-as_placeholder textarea:focus~label .label,
-.happyforms-styles .happyforms-part--label-as_placeholder.happyforms-part--filled input~label .label,
-.happyforms-styles .happyforms-part--label-as_placeholder.happyforms-part--filled textarea~label .label,
+.happyforms-styles .happyforms-part--label-as_placeholder input:focus~.happyforms-part__label-container label .label,
+.happyforms-styles .happyforms-part--label-as_placeholder textarea:focus~.happyforms-part__label-container label .label,
+.happyforms-styles .happyforms-part--label-as_placeholder.happyforms-part--filled .happyforms-part__label-container label .label,
 .happyforms-styles .happyforms-part--select.happyforms-part--filled.happyforms-part--label-as_placeholder .label {
   font-weight: bold;
   font-size: 14px;
