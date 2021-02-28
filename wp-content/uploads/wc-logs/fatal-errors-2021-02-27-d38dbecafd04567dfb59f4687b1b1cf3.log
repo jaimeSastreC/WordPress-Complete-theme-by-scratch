@@ -4,3 +4,7 @@
 
 2021-02-27T00:26:33+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\tryme\wordpress\wp-includes\pomo\streams.php on line 88
 
+2021-02-27T23:25:33+00:00 CRITICAL syntax error, unexpected '*' in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\functions.php on line 42
+
+2021-02-27T23:27:34+00:00 CRITICAL syntax error, unexpected '*' in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\functions.php on line 42
+

@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 <main>
-    <?php 
-        woocommerce_content(); 
-    ?>
+    <?php woocommerce_content(); ?>
 </main>
 
 

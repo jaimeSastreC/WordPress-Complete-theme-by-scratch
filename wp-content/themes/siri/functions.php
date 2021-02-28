@@ -36,10 +36,10 @@
     add_action('after_setup_theme', 'woocommerce_add_woocommerce_support');
 
     /* Remove WooCommerce Styles / option */
-    /* add_filter('woocommerce_enqueue_styles', '__return__false'); */
+    /* add_filter('woocommerce_enqueue_styles', '__return_false'); */
 
     /* Remove WooCommerce Styles / option */
-    /* add_filter('woocommerce_show_page_title', '__return__false'); */
+    add_filter('woocommerce_show_page_title', '__return_false');
 
     /* Add Support for Gallery Images */
     add_theme_support('wc-product-gallery-zoom');
