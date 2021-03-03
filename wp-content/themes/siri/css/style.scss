@@ -1,3 +1,5 @@
+@import 'woocommerce';
+
 //@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
 @import "_breakpoints.scss";
@@ -14,7 +16,7 @@
 /* Veriables
 ==============================================*/
 $primary-color: rgba(0,0,0,1);
-$headings-font: 'Playfair Display', serif;
+$headings-font: stolzl, serif;
 $body-font: stolzl, sans-serif;
 $mobile-padding: 16px;
 $desktop-padding: 36px;
@@ -25,7 +27,7 @@ $desktop-padding: 36px;
 html { font-size: 62.5%; }
 
 body {
-    //margin: 0;
+    margin: 0;
     font-size: 1.6rem;
     font-family: $body-font;
     font-weight: 300;
@@ -37,6 +39,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-family: $headings-font;
+    line-height: 1em;
 }
 
 h1 {
@@ -47,8 +50,8 @@ h1 {
 h2 { font-size: 2.8rem; }
 
 @include tablet-portrait {
-    h1 { font-size: 6.5rem; }
-    h2 { font-size: 4.5rem; }
+    h1 { font-size: 4.5rem; }
+    h2 { font-size: 3.5rem; }
 } 
 
 /* Links */
@@ -224,7 +227,7 @@ section, footer, .content-area, main {
 
     &::after {
         content: "";
-        background-image: url("/images/hero-image@2x.jpg");
+        background-image: url("../images/hero-image@2x.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 60%;

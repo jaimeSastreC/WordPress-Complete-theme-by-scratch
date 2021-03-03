@@ -11,7 +11,7 @@
     <header class="main-header">
 
         <div class="main-header__logo">
-            <a href="">SIRI Learning Spanish</a>
+            <a href="<?php echo site_url(); ?>">SIRI Learning Spanish</a>
         </div>
 
         <nav class="main-header__nav">

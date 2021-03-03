@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap");
+.woocommerce {
+  margin: 1em 0;
+}
+.woocommerce .entry-title {
+  /* margin-top: 1em; */
+}
+.woocommerce .product {
+  margin-top: 1.5em;
+}
+
 /*********************
     BREAKPOINTS
 *********************/
@@ -19,6 +29,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 1.6rem;
   font-family: stolzl, sans-serif;
   font-weight: 300;
@@ -29,7 +40,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  font-family: "Playfair Display", serif;
+  font-family: stolzl, serif;
+  line-height: 1em;
 }
 
 h1 {
@@ -43,11 +55,11 @@ h2 {
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 6.5rem;
+    font-size: 4.5rem;
   }
 
   h2 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 }
 /* Links */
@@ -213,7 +225,7 @@ section, footer, .content-area, main {
 }
 .hero::after {
   content: "";
-  background-image: url("/images/hero-image@2x.jpg");
+  background-image: url("../images/hero-image@2x.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 60%;

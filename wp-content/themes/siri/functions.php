@@ -16,7 +16,7 @@
     wp_enqueue_style('playfair_cdn');
  }
 
- add_action('wp_enqueue_scripts', 'woocommerce_custom_theme');
+
 
  /* Creating Custom Menu */
  function woocommerce_custom_menu() {
@@ -45,6 +45,6 @@
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
-
-     
  }
+
+ add_action('wp_enqueue_scripts', 'woocommerce_custom_theme');
