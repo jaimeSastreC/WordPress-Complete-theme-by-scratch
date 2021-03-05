@@ -222,10 +222,13 @@ section, footer, .content-area, main {
 ==============================================*/
 .hero {
   position: relative;
+  /* todo: check final picture with font */
 }
 .hero::after {
   content: "";
-  background-image: url("../images/hero-image@2x.jpg");
+  background-image: url("../images/hero-image-siri.jpg");
+  background-color: #ccc;
+  background-blend-mode: overlay;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 60%;
@@ -301,13 +304,13 @@ section, footer, .content-area, main {
   background-color: #f2f3f5;
 }
 .promo-card--women {
-  background-image: url("/images/female.png");
+  background-image: url("../images/female.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(100% - -50px);
 }
 .promo-card--men {
-  background-image: url("/images/male.png");
+  background-image: url("../images/male.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(100% - -30px);
