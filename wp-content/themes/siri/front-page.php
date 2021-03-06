@@ -14,7 +14,7 @@
 </section>
 
 <section class="standard-promo">
-    <!-- todo: css promo-card change name -->
+    <!-- todo: css promo-card change name - make dynamic -->
     <a href="#" class="promo-card promo-card--gray promo-card--women">
         <h2 class="promo-card__heading">Course</h2>
         <p class="promo-card__body">Short description of course.</p>

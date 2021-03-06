@@ -2,9 +2,11 @@
 .woocommerce {
   margin: 1em 0;
 }
+
 .woocommerce .entry-title {
   /* margin-top: 1em; */
 }
+
 .woocommerce .product {
   margin-top: 1.5em;
 }
@@ -57,15 +59,16 @@ h2 {
   h1 {
     font-size: 4.5rem;
   }
-
   h2 {
     font-size: 3.5rem;
   }
 }
+
 /* Links */
 a:link {
   color: black;
 }
+
 a:link:hover {
   color: rgba(0, 0, 0, 0.6);
 }
@@ -80,10 +83,10 @@ input {
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
   padding: 16px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* Layout Elements
@@ -93,10 +96,12 @@ input {
   width: 100%;
   max-width: 1280px;
 }
+
 .wrapper__heading {
   text-align: center;
   max-width: 600px;
 }
+
 .wrapper__heading span {
   display: block;
   letter-spacing: 0.2rem;
@@ -112,6 +117,7 @@ input {
   font-size: 1.2rem;
   border: 2px solid black;
 }
+
 @media screen and (min-width: 768px) {
   .button {
     font-size: 1.6rem;
@@ -126,6 +132,7 @@ section, footer, .content-area, main {
   margin: 0 auto;
   padding: 16px;
 }
+
 @media screen and (min-width: 768px) {
   section, footer, .content-area, main {
     padding: 36px;
@@ -135,10 +142,12 @@ section, footer, .content-area, main {
 /* Header
 ==============================================*/
 .main-header {
+  display: -ms-grid;
   display: grid;
   gap: 10px;
-  grid-template: "nav logo tools ";
-  grid-template-columns: repeat(3, 1fr);
+  grid-template: 'nav logo tools ';
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   padding: 0 18px;
   background-color: white;
   position: absolute;
@@ -147,36 +156,49 @@ section, footer, .content-area, main {
   right: 0;
   z-index: 1;
 }
+
 .main-header a {
   text-decoration: none;
   font-weight: 400;
 }
+
 .main-header__logo {
   grid-area: logo;
   font-size: 2.4rem;
   font-weight: 600;
-  justify-self: center;
-  align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
+
 .main-header__nav {
   grid-area: nav;
-  justify-self: start;
-  align-self: center;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
+
 .main-header__nav .menu {
   display: none;
   padding: 0;
   list-style: none;
 }
+
 .main-header__nav .menu .menu-item {
   display: inline-block;
   padding: 0 32px;
 }
+
 .main-header__nav .menu-link {
   width: 2.4rem;
   height: 1.4rem;
   position: relative;
 }
+
 .main-header__nav .menu-link span {
   position: absolute;
   left: 0;
@@ -185,30 +207,40 @@ section, footer, .content-area, main {
   height: 0.2rem;
   background-color: black;
 }
+
 .main-header__nav .menu-link span:first-child {
   top: 0;
 }
+
 .main-header__nav .menu-link span:last-child {
   bottom: 0;
 }
+
 .main-header__tools {
   grid-area: tools;
-  justify-self: end;
-  align-self: center;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
+
 .main-header__tools .tools-icon {
   padding: 0.6rem;
 }
+
 @media screen and (min-width: 768px) {
   .main-header {
-    grid-template: "logo nav tools";
+    grid-template: 'logo nav tools';
     background-color: rgba(255, 255, 255, 0);
   }
   .main-header__logo {
-    justify-self: start;
+    -ms-grid-column-align: start;
+        justify-self: start;
   }
   .main-header__nav {
-    justify-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   .main-header__nav .menu {
     display: block;
@@ -224,6 +256,7 @@ section, footer, .content-area, main {
   position: relative;
   /* todo: check final picture with font */
 }
+
 .hero::after {
   content: "";
   background-image: url("../images/hero-image-siri.jpg");
@@ -239,36 +272,47 @@ section, footer, .content-area, main {
   left: 0;
   z-index: -1;
 }
+
 .hero__wrapper {
+  display: -ms-grid;
   display: grid;
   text-decoration: none;
   height: 32vh;
-  align-content: end;
+  -ms-flex-line-pack: end;
+      align-content: end;
 }
+
 .hero__wrapper h1 {
   margin: 26px;
 }
+
 @media screen and (min-width: 768px) {
   .hero__wrapper {
     height: 88vh;
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
 }
 
 /* Promo Card
 ==============================================*/
 .standard-promo {
+  display: -ms-grid;
   display: grid;
 }
+
 @media screen and (min-width: 1024px) {
   .standard-promo {
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     grid-auto-rows: 450px;
     gap: 40px;
   }
   .standard-promo .promo-card {
+    display: -ms-grid;
     display: grid;
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
   .standard-promo .promo-card__heading, .standard-promo .promo-card__body {
     max-width: 300px;
@@ -294,21 +338,26 @@ section, footer, .content-area, main {
   /* Element */
   /* Modifiers */
 }
+
 .promo-card:hover {
   text-decoration: underline;
 }
+
 .promo-card__body {
   max-width: 70%;
 }
+
 .promo-card--gray {
   background-color: #f2f3f5;
 }
+
 .promo-card--women {
   background-image: url("../images/female.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(100% - -50px);
 }
+
 .promo-card--men {
   background-image: url("../images/male.png");
   background-size: contain;
@@ -323,10 +372,14 @@ section, footer, .content-area, main {
 
 /* Newsletter */
 .newsletter {
+  display: -ms-grid;
   display: grid;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 20px;
 }
+
 .newsletter__heading {
   max-width: 500px;
   line-height: 4rem;
@@ -334,9 +387,11 @@ section, footer, .content-area, main {
   margin: 0;
   font-style: italic;
 }
+
 @media screen and (min-width: 768px) {
   .newsletter {
-    grid-template-columns: 2fr 1fr;
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
   }
 }
 
@@ -345,41 +400,67 @@ section, footer, .content-area, main {
   margin-bottom: 20px;
   border-bottom: 1px solid black;
 }
+
 .form__submit {
   width: 100%;
 }
 
 /* Footer */
+footer {
+  background-color: #c8c8c8;
+  margin-top: 3em;
+  color: #eee;
+}
+
 .footer {
+  display: -ms-grid;
   display: grid;
   gap: 20px;
 }
+
+.footer a:link {
+  color: #eee;
+}
+
 @media screen and (min-width: 768px) {
   .footer {
-    grid-template-columns: repeat(4, 1fr);
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
   }
 }
+
 .footer-container__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 .footer-container__body {
   display: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .footer-container__body a {
   display: block;
   padding: 8px 0;
 }
+
 @media screen and (min-width: 768px) {
   .footer-container__body {
     display: block;
   }
   .footer-container__heading {
-    justify-content: start;
-    align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .footer-container__heading svg {
     display: none;
@@ -388,14 +469,15 @@ section, footer, .content-area, main {
 
 /* CopyRight */
 .copyright {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 }
+
 .copyright__social a {
   padding: 10px;
 }
-.copyright__body {
-  margin: 40px 0;
-}
 
+.copyright__body {
+  margin: 20px 0 0;
+}
 /*# sourceMappingURL=style.css.map */

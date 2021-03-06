@@ -17,10 +17,9 @@
  }
 
 
-
  /* Creating Custom Menu */
  function woocommerce_custom_menu() {
-    register_nav_menu('top-menu', __('WooCommerce Custom Menu'), 'woocommercecustommenu');
+    register_nav_menu('Top-menu-header', __('WooCommerce Custom Menu'), 'woocommercecustommenu');
  }
 
  add_action( 'init', 'woocommerce_custom_menu');

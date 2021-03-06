@@ -16,6 +16,7 @@
 /* Veriables
 ==============================================*/
 $primary-color: rgba(0,0,0,1);
+$secondary-color: #eee;
 $headings-font: stolzl, serif;
 $body-font: stolzl, sans-serif;
 $mobile-padding: 16px;
@@ -358,12 +359,24 @@ section, footer, .content-area, main {
 
 
 /* Footer */
+footer {
+    background-color: rgb(200, 200, 200);
+    margin-top: 3em;
+    color: $secondary-color;
+
+
+}
+
 .footer {
     display: grid;
     gap: 20px;
 
+    a:link {
+        color: $secondary-color;
+    }
+
     @include tablet-portrait {
-        grid-template-columns: repeat(4, 1fr)
+        grid-template-columns: repeat(3, 1fr)
     }
 
     &-container {
@@ -402,12 +415,12 @@ section, footer, .content-area, main {
 
 /* CopyRight */
 .copyright {
-    margin-top: 20px;
+    margin-top: 40px;
     text-align: center;
 
     &__social {
         a { padding: 10px; }
     }
  
-    &__body { margin: 40px 0; }
+    &__body { margin: 20px 0 0; }
 }
