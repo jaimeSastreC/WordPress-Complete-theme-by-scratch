@@ -16,10 +16,21 @@
     wp_enqueue_style('playfair_cdn');
  }
 
+ /* Creating Customer menus */
+ if (function_exists('register_nav_menus')) {
+   register_nav_menus([
+      'top-menu' => 'top-menu',
+   ]);
+ }
+ 
 
- /* Creating Custom Menu */
+ /* Creating WooCommerce Menu */
  function woocommerce_custom_menu() {
-    register_nav_menu('Top-menu-header', __('WooCommerce Custom Menu'), 'woocommercecustommenu');
+    register_nav_menu(
+      'Top-menu-header', 
+      __('WooCommerce Custom Menu'), 
+      'woocommercecustommenu'
+   );
  }
 
  add_action( 'init', 'woocommerce_custom_menu');

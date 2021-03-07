@@ -4,6 +4,7 @@
     <meta charset= "<?php bloginfo('charset'); ?>" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="pingback" href="<?php bloginfo('pingbacl_url'); ?>">
+    <title><?php bloginfo('name');?></title>
     <!-- WP info for css Js title -->
     <?php wp_head(); ?> 
 </head>
@@ -12,7 +13,7 @@
     <header class="main-header">
 
         <div class="main-header__logo">
-            <a href="<?php echo site_url(); ?>">SIRI Learning Spanish</a>
+            <a href="<?php echo site_url(); ?>"><?php bloginfo('name');?></a>
         </div>
 
         <nav class="main-header__nav">
@@ -24,10 +25,12 @@
             </div>
 
             <?php 
-                wp_nav_menu(array(
-                    'theme_location' => 'top-menu',
-                    'container' => false,
-                ));
+                if (has_nav_menu('top-menu')){
+                    wp_nav_menu([
+                        'theme_location' => 'top-menu',
+                        'container' => false,
+                    ]);
+                }
             ?>
         </nav>
 

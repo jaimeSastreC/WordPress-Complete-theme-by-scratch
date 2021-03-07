@@ -30,7 +30,7 @@ html {
   font-size: 62.5%;
 }
 
-body {
+body, p {
   margin: 0;
   font-size: 1.6rem;
   font-family: stolzl, sans-serif;
@@ -108,9 +108,15 @@ input {
   margin-bottom: 10px;
 }
 
+.wrapper__body {
+  display: block;
+  font-size: 1.6rem;
+}
+
 .button {
   display: inline-block;
   color: black;
+  margin-top: 20px;
   padding: 10px 16px;
   text-align: center;
   text-decoration: none;
@@ -128,13 +134,13 @@ input {
   background-color: #fff;
 }
 
-section, footer, .content-area, main {
+header, section, footer, .content-area, main {
   margin: 0 auto;
   padding: 16px;
 }
 
 @media screen and (min-width: 768px) {
-  section, footer, .content-area, main {
+  header, section, footer, .content-area, main {
     padding: 36px;
   }
 }
@@ -276,14 +282,14 @@ section, footer, .content-area, main {
 .hero__wrapper {
   display: -ms-grid;
   display: grid;
-  text-decoration: none;
   height: 32vh;
+  text-decoration: none;
   -ms-flex-line-pack: end;
       align-content: end;
 }
 
 .hero__wrapper h1 {
-  margin: 26px;
+  margin: 20px;
 }
 
 @media screen and (min-width: 768px) {

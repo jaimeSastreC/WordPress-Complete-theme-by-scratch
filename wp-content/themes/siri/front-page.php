@@ -1,17 +1,19 @@
 <?php get_header(); ?>
 
-<section class="hero">
+<header class="hero">
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
             <div class="wrapper__heading">
                 <!-- todo: change title and subtitle to WP title -->
-                <span>WITH A SPANISH GUIDE</span>
-                <h1>LEARNING SPANISH</h1>
+                <span><?php bloginfo('description');?></span>
+                <h1><?php the_title(); ?></h1>
+                <p><?php the_content(); ?></p>
+
                 <div class="button button-white">COURSES</div>
             </div>
         </div>
     </a>
-</section>
+</header>
 
 <section class="standard-promo">
     <!-- todo: css promo-card change name - make dynamic -->
