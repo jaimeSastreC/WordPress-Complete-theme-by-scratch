@@ -303,7 +303,7 @@
 		$( '.happyforms-form' ).on( 'submit', handlers.silenceEvent );
 	}
 
-	$( document ).ready( function() {
+	$( function() {
 		handlers.init();
 		handlers.bind();
 		api.preview.send( 'happyforms-preview-ready' );

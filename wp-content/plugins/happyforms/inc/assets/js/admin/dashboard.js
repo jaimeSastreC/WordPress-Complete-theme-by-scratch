@@ -24,7 +24,7 @@
 			$( '#TB_window' ).addClass( 'happyforms-admin-modal' ).addClass( modalId );
 			$( '#TB_ajaxContent' ).height( 'auto' );
 			$( '#TB_title' ).width( $( '#TB_ajaxContent' ).width() );
-			$( '#TB_closeWindowButton' ).blur();
+			$( '#TB_closeWindowButton' ).trigger( 'blur' );
 		},
 
 		closeModal: function() {
@@ -51,7 +51,7 @@
 		}
 	};
 
-	$( document ).ready( function() {
+	$( function() {
 		happyForms.freeDashboard.init();
 	} );
 

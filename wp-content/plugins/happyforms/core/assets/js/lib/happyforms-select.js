@@ -33,10 +33,10 @@
 	}
 
 	HappyFormsSelect.prototype.init = function() {
-		this.$el.attr( 'readonly', 'readonly' );
+		this.$el.prop( 'readonly', true );
 
 		if ( this.searchable && 'false' !== this.searchable ) {
-			this.$el.removeAttr( 'readonly' );
+			this.$el.prop( 'readonly', false );
 		}
 
 		this.defaultValue = this.$input.val();
@@ -62,7 +62,7 @@
 	HappyFormsSelect.prototype.handleClick = function( e ) {
 		e.stopPropagation();
 
-		this.$el.focus();
+		this.$el.trigger( 'focus' );
 		this.toggleDropdown();
 	}
 
@@ -89,7 +89,7 @@
 		if ( ! this.$select.is( ':visible' ) ) {
 			this.hideAllInstances();
 
-			this.$input.focus();
+			this.$input.trigger( 'focus' );
 			this.$select.show();
 
 			this.keepFocus = true;
@@ -360,14 +360,14 @@
 			if ( $nextItem.length ) {
 				this.$select.show();
 				$currentItem.removeClass( 'active' );
-				$nextItem.focus().addClass( 'active' );
+				$nextItem.trigger( 'focus' ).addClass( 'active' );
 			}
 		}
 
 		if ( 'up' === direction && $prevItem.length ) {
 			this.$select.show();
 			$currentItem.removeClass( 'active' );
-			$prevItem.focus().addClass( 'active' );
+			$prevItem.trigger( 'focus' ).addClass( 'active' );
 		}
 	}
 

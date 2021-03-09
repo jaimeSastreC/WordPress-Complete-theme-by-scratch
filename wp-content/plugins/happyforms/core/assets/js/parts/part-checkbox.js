@@ -60,7 +60,7 @@
 		},
 
 		onReady: function() {
-			$( '[name=label]', this.$el ).focus();
+			$( '[name=label]', this.$el ).trigger( 'focus' );
 		},
 
 		onAdvancedOptionClick: function( e ) {
@@ -114,11 +114,11 @@
 				item.set( 'is_default', 0 );
 			} );
 
-			$( '[name=option_is_default]', this.$el.siblings() ).attr( 'checked', false );
+			$( '[name=option_is_default]', this.$el.siblings() ).prop( 'checked', false );
 
 			if ( isChecked ) {
 				this.model.set( 'is_default', 1 );
-				$( e.target ).attr( 'checked', true );
+				$( e.target ).prop( 'checked', true );
 			}
 
 			var data = {
@@ -324,7 +324,7 @@
 			var $supportedOptions = $( '.part-options-width-setting select option.display-type--' + value, this.$el );
 			$supportedOptions.show();
 
-			$( '.part-options-width-setting select' ).val( 'auto' ).change();
+			$( '.part-options-width-setting select' ).val( 'auto' ).trigger( 'change' );
 
 			var data = {
 				id: this.model.get( 'id' ),
@@ -347,7 +347,7 @@
 			e.preventDefault();
 
 			if ( 'Enter' === e.key ) {
-				$( '.add-option', this.$el ).click();
+				$( '.add-option', this.$el ).trigger( 'click' );
 				return;
 			}
 		},
@@ -359,7 +359,7 @@
 			$( '.options-import', this.$el ).show();
 			$( '.links.mode-manual', this.$el ).hide();
 			$( '.links.mode-import', this.$el ).show();
-			$( '.option-import-area', this.$el ).focus();
+			$( '.option-import-area', this.$el ).trigger( 'focus' );
 		},
 
 		onAddOptionsClick: function( e ) {
@@ -400,7 +400,7 @@
 				} );
 
 			$textarea.val( '' );
-			$( '.add-options', this.$el ).click();
+			$( '.add-options', this.$el ).trigger( 'click' );
 		},
 
 		onSelectAllChange: function( model, value ) {

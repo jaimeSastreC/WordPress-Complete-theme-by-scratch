@@ -66,7 +66,7 @@ a:link {
 a:visited, a:active { color: $primary-color; }
 
 /* Inputs */
-input {
+input, .input {
     border: none;
     background-image: none;
     background-color: transparent;
@@ -75,6 +75,7 @@ input {
     box-shadow: none;
     padding: 16px;
     box-sizing: border-box;
+    color:blue;
 }
 
 
@@ -99,7 +100,9 @@ input {
 
     &__body {
         display: block;
+        font-family: $body-font;
         font-size: 1.6rem;
+        line-height: 3rem; 
     }
 
 }
@@ -109,7 +112,7 @@ input {
     display: inline-block;
     color: $primary-color;
     margin-top: 20px;
-    padding: 10px 16px;
+    padding: 5px 16px;
     text-align: center;
     text-decoration: none;
     font-size: 1.2rem;
@@ -273,7 +276,7 @@ header, section, footer, .content-area, main {
     @include desktop {
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 450px;
-        gap: 40px;
+        gap: 30px;
 
         .promo-card {
             display: grid;
@@ -283,7 +286,7 @@ header, section, footer, .content-area, main {
             &__heading { margin: 0; }
             &__body { line-height: 3rem; }
 
-            &--women, &--men {
+            &--classic, &--extra {
                 background-size: cover;
                 background-position: right;
             }
@@ -308,14 +311,14 @@ header, section, footer, .content-area, main {
     /* Modifiers */
     &--gray { background-color: #f2f3f5; }
 
-    &--women {
+    &--classic {
         background-image: url("../images/female.png");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: calc(100% - -50px);
     }
 
-    &--men {
+    &--extra {
         background-image: url("../images/male.png");
         background-size: contain;
         background-repeat: no-repeat;
@@ -354,7 +357,7 @@ header, section, footer, .content-area, main {
 .form {
     &__email {
         width: 100%;
-        margin-bottom: 20px;
+        //margin-bottom: 20px;
         border-bottom: 1px solid $primary-color;
     }
 

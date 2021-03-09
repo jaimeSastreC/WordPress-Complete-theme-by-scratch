@@ -44,7 +44,7 @@
 			$( '#happyforms-dialog-select' ).val( '' );
 
 			if ( editor = this.getCurrentEditor() ) {
-				editor.focus();
+				editor.trigger( 'focus' );
 			}
 		},
 
@@ -84,7 +84,7 @@
 		},
 	};
 
-	$( document ).ready( function() {
+	$( function() {
 		happyForms.dashboard.init();
 	} );
 

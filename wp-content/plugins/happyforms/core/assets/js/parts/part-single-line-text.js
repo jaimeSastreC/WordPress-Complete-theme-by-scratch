@@ -29,7 +29,7 @@
 					}
 				});
 			} else {
-				$( '[data-bind=use_as_subject]', this.$el ).removeAttr( 'checked' );
+				$( '[data-bind=use_as_subject]', this.$el ).prop( 'checked', false );
 			}
 		}
 	} );

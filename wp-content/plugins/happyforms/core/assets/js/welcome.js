@@ -1,5 +1,5 @@
 ( function( $ ) {
-	$( document ).ready( function() {
+	$( function() {
 		$successTemplate = $( '#happyforms-tracking-success' );
 		$errorTemplate = $( '#happyforms-tracking-error' );
 		$content = $( '.happyforms-welcome-panel .welcome-panel-content' );
@@ -8,9 +8,9 @@
 		$skipLink = $( '#happyforms-tracking-skip' );
 		$email = $( 'input[type="email"]' );
 
-		$email.focus();
+		$email.trigger( 'focus' );
 
-		$( '#happyforms-tracking' ).submit( function( e ) {
+		$( '#happyforms-tracking' ).on( 'submit', function( e ) {
 			e.preventDefault();
 
 			var $this = $( this );
@@ -50,7 +50,7 @@
 
 		$proceedLink.click( proceed );
 		$skipLink.click( proceed );
-		$email.focus();
+		$email.trigger( 'focus' );
 
 	} );
 } )( jQuery );

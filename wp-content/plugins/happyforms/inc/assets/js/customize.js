@@ -458,7 +458,7 @@
 		enableSave: function() {
 			var $saveButton = $( '#happyforms-save-button', this.$el );
 
-			$saveButton.removeAttr( 'disabled' ).text( $saveButton.data( 'text-default' ) );
+			$saveButton.prop( 'disabled', false ).text( $saveButton.data( 'text-default' ) );
 		},
 
 		disableSave: function() {
@@ -657,14 +657,14 @@
 			$( '.wp-full-overlay' ).append( this.drawer.render().$el );
 
 			if ( -1 === happyForms.savedStates.build.activePartIndex ) {
-				$( '#happyforms-form-name', this.$el ).focus().select();
+				$( '#happyforms-form-name', this.$el ).trigger( 'focus' ).trigger( 'select' );
 			}
 		},
 
 		onNameInputClick: function( e ) {
 			var $input = $(e.target);
 
-			$input.select();
+			$input.trigger( 'select' );
 		},
 
 		onNameChange: function( e ) {
@@ -972,7 +972,7 @@
 			$( 'body' ).toggleClass( 'adding-happyforms-parts' );
 
 			if ( this.$el.hasClass( 'expanded') ) {
-				$( '#part-search' ).focus();
+				$( '#part-search' ).trigger( 'focus' );
 			}
 		},
 
@@ -1130,7 +1130,7 @@
 				$el.toggleClass( 'happyforms-widget-expanded' );
 
 				if( $el.hasClass( 'happyforms-widget-expanded' ) ) {
-					$( 'input[data-bind=label]', $el ).focus();
+					$( 'input[data-bind=label]', $el ).trigger( 'focus' );
 				}
 
 			} );
@@ -2417,16 +2417,16 @@
 			var $partWidget = $( '[data-part-id="' + id + '"]' );
 
 			if ( ! $partWidget.hasClass( 'happyforms-widget-expanded' ) ) {
-				$partWidget.find( '.toggle-indicator' ).click();
+				$partWidget.find( '.toggle-indicator' ).trigger( 'click' );
 			}
 
-			$( 'input', $partWidget ).first().focus();
+			$( 'input', $partWidget ).first().trigger( 'focus' );
 		},
 
 		onPreviewPencilClickTitle: function( id ) {
 			happyForms.navigate( 'build', { trigger: true } );
 
-			$( 'input[name="post_title"]' ).focus();
+			$( 'input[name="post_title"]' ).trigger( 'focus' );
 		},
 
 		onOptionalPartLabelChangeCallback: function( $form ) {

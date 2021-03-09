@@ -142,7 +142,7 @@
 				'letter-spacing',
 			];
 
-			$( '.happyforms-tooltip__trigger', this.$el ).click( function( e ) {
+			$( '.happyforms-tooltip__trigger', this.$el ).on( 'click', function( e ) {
 				e.preventDefault();
 			} );
 
@@ -233,9 +233,9 @@
 			this.$submit.off( 'click' );
 			this.$submitLinks.off( 'click' );
 
-			this.$form.submit( this.submit.bind( this ) );
-			this.$submit.click( this.buttonSubmit.bind( this ) );
-			this.$submitLinks.click( this.linkSubmit.bind( this ) );
+			this.$form.on( 'submit', this.submit.bind( this ) );
+			this.$submit.on( 'click', this.buttonSubmit.bind( this ) );
+			this.$submitLinks.on( 'click', this.linkSubmit.bind( this ) );
 			this.$el.on( 'happyforms-scrolltop', this.onScrollTop.bind( this ) );
 		},
 
@@ -295,7 +295,7 @@
 				this.$step.val( e.target.getAttribute( 'data-step' ) );
 			}
 
-			this.$form.submit();
+			this.$form.trigger( 'submit' );
 		},
 
 		submit: function( e ) {
@@ -409,7 +409,7 @@
 		} );
 	}
 
-	$( document ).ready( function() {
+	$( function() {
 		$( '.happyforms-form' ).happyForm();
 	} );
 

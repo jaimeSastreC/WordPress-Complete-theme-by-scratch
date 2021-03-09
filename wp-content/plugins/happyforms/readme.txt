@@ -3,9 +3,9 @@
 Contributors: happyforms
 Tags: contact form, contact form plugin, forms, form builder, custom form, intake form, registration form, survey form, quiz form, payment form, newsletter form, giveaway form, fundraising form, donation form, nomination form, order form, questionnaire form, onboarding form, contract form, estimate form, research form, qualitative form, quantitative form, membership form, mobile form, feedback form, release form, inquiry form, request form, evaluation form, RSVP form, reservation form, sales lead form, popup form, quote form, event form, booking form, application form, agreement form, safety form, compliance form, assessment form, sponsorship form, report form, file upload form, satisfaction form
 Requires at least: 4.8
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.3
-Stable tag: 1.11.1
+Stable tag: 1.12.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,9 @@ Abso-freakin-lutely! We’re always checking to make sure HappyForms plays nicel
 Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
 == Changelog ==
+
+= 1.12.0 =
+* Improvement: Removed jQuery deprecations.
 
 = 1.11.1 =
 * Bugfix: Form title "Display" control wasn't working.
@@ -759,6 +762,9 @@ Note: you'll need to upgrade to our paid contact form builder plugin to get some
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.12.0 =
+* jQuery deprecation updates.
 
 = 1.11.1 =
 * Form title "Display" control fixes.
