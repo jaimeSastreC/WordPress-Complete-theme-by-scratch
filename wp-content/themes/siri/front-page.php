@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <header class="hero">
+    <h1 class="siri-title">SIRI</h1>
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
             <div class="wrapper__heading">
@@ -16,9 +17,11 @@
             </div>
         </div>
     </a>
+    <div class="round"></div>
+
 </header>
 
-<section class="standard-promo">
+<!-- <section class="standard-promo">
     
     <a href="#" class="promo-card promo-card--gray promo-card--classic">
         <h2 class="promo-card__heading">Course</h2>
@@ -30,23 +33,7 @@
         <p class="promo-card__body">Short desciption of the course.</p>
     </a>
 
-</section>
-
-<section class="standard-promo">
-    <!-- todo: make dynamic -->
-    <?php 
-       if(shortcode_exists('product_category')) {
-            echo do_shortcode('[ product_category ]');
-            echo do_shortcode('[woocommerce_product_filter_category]');
-        }
-        if (is_product_category()) {
-            echo "<div id='wc-category-menu'>";
-            echo do_shortcode('[product_categories columns="5"]');
-            echo "</div>";
-        }
-    ?>
-
-</section>
+</section> -->
 
 <section class="shop-section">
     <h2 class="shop-section__heading"> Best Sellers</h2>

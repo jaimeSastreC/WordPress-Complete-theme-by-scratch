@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap");
 .woocommerce {
   margin: 1em 0;
@@ -34,12 +35,18 @@ body, p {
   font-family: stolzl, sans-serif;
   font-weight: 300;
   font-style: normal;
-  color: black;
+  color: rgba(0, 0, 0, 0.9);
   line-height: 3rem;
+}
+
+main {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
+  color: #FF7E35;
   font-family: stolzl, serif;
   line-height: 1em;
 }
@@ -55,7 +62,7 @@ h2 {
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 4.5rem;
+    font-size: 9rem;
   }
 
   h2 {
@@ -64,14 +71,14 @@ h2 {
 }
 /* Links */
 a:link {
-  color: black;
+  color: rgba(0, 0, 0, 0.9);
 }
 a:link:hover {
   color: rgba(0, 0, 0, 0.6);
 }
 
 a:visited, a:active {
-  color: black;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 /* Inputs */
@@ -95,8 +102,10 @@ input, .input {
   max-width: 1280px;
 }
 .wrapper__heading {
+  margin-top: 10vw;
   text-align: center;
-  max-width: 600px;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .wrapper__heading span {
   display: block;
@@ -112,13 +121,13 @@ input, .input {
 
 .button {
   display: inline-block;
-  color: black;
+  color: rgba(0, 0, 0, 0.9);
   margin-top: 20px;
   padding: 5px 16px;
   text-align: center;
   text-decoration: none;
   font-size: 1.2rem;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.9);
 }
 @media screen and (min-width: 768px) {
   .button {
@@ -144,6 +153,7 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .main-header {
   display: grid;
+  z-index: 100;
   gap: 10px;
   grid-template: "nav logo tools ";
   grid-template-columns: repeat(3, 1fr);
@@ -165,6 +175,9 @@ header, section, footer, .content-area, main {
   font-weight: 600;
   justify-self: center;
   align-self: center;
+}
+.main-header__logo .logo-type {
+  color: #eee;
 }
 .main-header__nav {
   grid-area: nav;
@@ -230,37 +243,58 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .hero {
   position: relative;
-  /* todo: check final picture with font */
-}
-.hero::after {
-  content: "";
-  background-image: url("../images/hero-image-siri.jpg");
-  background-color: #ccc;
-  background-blend-mode: overlay;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 60%;
-  position: absolute;
+  display: block;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+  height: 150vh;
 }
 .hero__wrapper {
   display: grid;
+  z-index: 2;
   height: 32vh;
   text-decoration: none;
   align-content: end;
 }
 .hero__wrapper h1 {
   margin: 20px;
+  z-index: 10;
 }
 @media screen and (min-width: 768px) {
   .hero__wrapper {
+    z-index: 100;
     height: 88vh;
     align-content: center;
   }
+}
+.hero .round {
+  width: 100vw;
+  height: 150vw;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-image: url(round.svg);
+  background-position-x: -27vw;
+  background-size: 150vw;
+  color: rgba(255, 231, 188, 0.1);
+}
+
+.siri-title {
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+  font-family: "Roboto", sans-serif;
+  font-size: 63vw;
+  letter-spacing: -30px;
+  color: rgba(255, 231, 188, 0.4);
+  background-image: url("../images/hero-image-siri.jpg");
+  background-size: 130vw;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: bottom 50% right 65%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  top: -130px;
+  right: -2%;
 }
 
 /* Promo Card
@@ -350,7 +384,7 @@ header, section, footer, .content-area, main {
 
 .form__email {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
 }
 .form__submit {
   width: 100%;

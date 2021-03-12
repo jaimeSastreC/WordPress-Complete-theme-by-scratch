@@ -1,6 +1,6 @@
 @import 'woocommerce';
 
-//@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
 @import "_breakpoints.scss";
 
@@ -15,9 +15,11 @@
 
 /* Veriables
 ==============================================*/
-$primary-color: rgba(0,0,0,1);
+$primary-color: rgba(0, 0, 0, 0.9);
+$title-color: #FF7E35;
 $secondary-color: #eee;
 $headings-font: stolzl, serif;
+$hero-title: 'Roboto', sans-serif;
 $body-font: stolzl, sans-serif;
 $mobile-padding: 16px;
 $desktop-padding: 36px;
@@ -37,8 +39,14 @@ body, p {
     line-height: 3rem;
 }
 
+main {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+    color : $title-color;
     font-family: $headings-font;
     line-height: 1em;
 }
@@ -51,7 +59,7 @@ h1 {
 h2 { font-size: 2.8rem; }
 
 @include tablet-portrait {
-    h1 { font-size: 4.5rem; }
+    h1 { font-size: 9rem; }
     h2 { font-size: 3.5rem; }
 } 
 
@@ -88,8 +96,10 @@ input, .input {
     max-width: 1280px;
 
     &__heading { 
+        margin-top: 10vw;
         text-align: center;
-        max-width: 600px;
+        max-width: 500px;
+        background-color: rgba(255,255,255,0.5);
 
         span {
             display: block;
@@ -145,6 +155,7 @@ header, section, footer, .content-area, main {
 
 .main-header {
     display: grid;
+    z-index: 100;
     gap: 10px;
     grid-template: 
     'nav logo tools '
@@ -164,6 +175,10 @@ header, section, footer, .content-area, main {
         font-weight: 600;
         justify-self: center;
         align-self: center;
+
+        .logo-type {
+            color:$secondary-color;
+        }
     }
 
     &__nav {
@@ -234,38 +249,65 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .hero {
     position: relative;
-    /* todo: check final picture with font */
-    &::after {
-        content: "";
-        background-image: url("../images/hero-image-siri.jpg");
-        background-color: #ccc;
-        background-blend-mode: overlay ;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 60%;
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-    }
+    display:block;
+    top: 0;
+    height: 150vh;
 
     &__wrapper {
         display: grid;
+        z-index: 2;
         height: 32vh;
         text-decoration: none;
         align-content: end;
 
         h1 {
-            margin: 20px; 
+            margin: 20px;
+            z-index: 10; 
         }
     }
 
     @include tablet-portrait {
 
         &__wrapper {
+            z-index: 100;
             height: 88vh;
             align-content: center;
         }
     }
+
+    .round {
+        width: 100vw;
+        height: 150vw;
+        position: absolute;
+        z-index: -1;
+        top:0;
+        left: 0;
+        background-image: url(round.svg);
+        background-position-x: -27vw;
+        background-size: 150vw;
+        color: rgba(255, 231, 188, 0.1);
+    }
+} 
+
+.siri-title {
+    position: absolute;
+    margin: 0;
+    z-index: -1;
+    font-family: $hero-title;
+    //font-weight: 900;
+    font-size: 63vw;
+    letter-spacing: -30px;
+    color: rgba(255, 231, 188, 0.4);
+    background-image: url("../images/hero-image-siri.jpg");
+    background-size: 130vw;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    //background-position: bottom -120px right -220px;
+    background-position: bottom 50% right 65%;
+    background-clip: text;
+    -webkit-background-clip: text; //important!
+    top:-130px; //-12%
+    right: -2%;
 }
 
 /* Promo Card
