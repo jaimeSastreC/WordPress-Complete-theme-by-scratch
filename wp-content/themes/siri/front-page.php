@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <header class="hero">
-    <h1 class="siri-title">SIRI</h1>
+    <h1 class="siri-back">SIRI</h1>
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
             <?php if(have_posts()): ?>
@@ -11,8 +11,8 @@
                         <h1><?php the_title(); ?></h1>
                     </div>
                     <div class="wrapper__body hero_text">
-                        <?php the_content(); ?>
                         <div class="button button-white">COURSES</div>
+                        <?php the_content(); ?>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
@@ -36,8 +36,8 @@
 </section> -->
 
 <section class="shop-section">
-    <h2 class="shop-section__heading"> Best Sellers</h2>
-    <p class="shop-section__body">Our best sellers. They are cool<br /> with happy results.</p>
+    <h2 class="shop-section__heading"> Best Courses</h2>
+    <p class="shop-section__body">My best Courses. They have most success<br /> with happy results.</p>
     <div class="items">
         <?php /* echo do_shortcode('[best_selling_products category = "Language Level I" limit = "4"]'); */ ?>
         <?php echo do_shortcode('[best_selling_products limit="3"]'); ?>
@@ -46,7 +46,7 @@
 
 <section class="shop-section">
     <h2 class="shop-section__heading">New Proposals</h2>
-    <p class="shop-section__body">New arrivals. Updated every day.<br />It's time to explore.</p>
+    <p class="shop-section__body">New arrivals. Updated regularly.<br />It's time to explore!</p>
     <div class="items">
         <?php echo do_shortcode('[products limit="3" orderbyid="id" order"DESC"]'); ?>
     </div>

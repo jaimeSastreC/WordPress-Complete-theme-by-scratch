@@ -264,23 +264,24 @@ header, section, footer, .content-area, main {
   }
 }
 .hero .round {
-  width: 100vw;
   height: 150vw;
+  width: 100vw;
   position: absolute;
   z-index: -1;
   top: 0;
-  left: 0;
+  left: -1vw;
+  right: 0;
   background-image: url(round.svg);
   background-position-x: -27vw;
   background-size: 150vw;
   color: rgba(255, 231, 188, 0.1);
 }
 
-.siri-title {
+.siri-back {
   position: absolute;
   display: block;
-  top: 0;
-  margin: 0;
+  top: -10vw;
+  left: -10vw;
   z-index: -1;
   font-family: "Roboto", sans-serif;
   font-size: 60vw;
@@ -289,16 +290,14 @@ header, section, footer, .content-area, main {
   background-size: 130vw;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
-  background-position: bottom 50% right 65%;
+  background-position: bottom 50% right 67%;
   background-clip: text;
   -webkit-background-clip: text;
-  top: -10vw;
-  right: -2%;
 }
 
 @media screen and (min-width: 768px) {
   .siri-title {
-    font-size: 63vw;
+    font-size: 64vw;
     letter-spacing: -30px;
   }
 }
