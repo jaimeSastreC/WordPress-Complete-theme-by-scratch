@@ -4,21 +4,21 @@
     <h1 class="siri-title">SIRI</h1>
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
-            <div class="wrapper__heading">
-                <!-- todo: change title and subtitle to WP title -->
-                <span><?php bloginfo('description');?></span>
-                <?php if(have_posts()): ?>
-                    <?php while(have_posts()): the_post(); ?>
+            <?php if(have_posts()): ?>
+                <?php while(have_posts()): the_post(); ?>
+                    <div class="wrapper__heading">
+                        <span><?php bloginfo('description');?></span>
                         <h1><?php the_title(); ?></h1>
+                    </div>
+                    <div class="wrapper__body hero_text">
                         <?php the_content(); ?>
                         <div class="button button-white">COURSES</div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     </a>
     <div class="round"></div>
-
 </header>
 
 <!-- <section class="standard-promo">

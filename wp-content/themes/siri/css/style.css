@@ -39,15 +39,10 @@ body, p {
   line-height: 3rem;
 }
 
-main {
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   color: #FF7E35;
-  font-family: stolzl, serif;
+  font-family: "Stolzl", sans-serif;
   line-height: 1em;
 }
 
@@ -97,6 +92,9 @@ input, .input {
 /* Layout Elements
 ==============================================*/
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
   max-width: 1280px;
@@ -104,6 +102,7 @@ input, .input {
 .wrapper__heading {
   margin-top: 10vw;
   text-align: center;
+  width: auto;
   max-width: 500px;
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -113,7 +112,9 @@ input, .input {
   margin-bottom: 10px;
 }
 .wrapper__body {
-  display: block;
+  max-width: 500px;
+  text-align: center;
+  margin-top: auto;
   font-family: stolzl, sans-serif;
   font-size: 1.6rem;
   line-height: 3rem;
@@ -177,7 +178,7 @@ header, section, footer, .content-area, main {
   align-self: center;
 }
 .main-header__logo .logo-type {
-  color: #eee;
+  color: #FF7E35;
 }
 .main-header__nav {
   grid-area: nav;
@@ -243,9 +244,7 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .hero {
   position: relative;
-  display: block;
   top: 0;
-  height: 150vh;
 }
 .hero__wrapper {
   display: grid;
@@ -260,7 +259,6 @@ header, section, footer, .content-area, main {
 }
 @media screen and (min-width: 768px) {
   .hero__wrapper {
-    z-index: 100;
     height: 88vh;
     align-content: center;
   }
@@ -280,11 +278,12 @@ header, section, footer, .content-area, main {
 
 .siri-title {
   position: absolute;
+  display: block;
+  top: 0;
   margin: 0;
   z-index: -1;
   font-family: "Roboto", sans-serif;
-  font-size: 63vw;
-  letter-spacing: -30px;
+  font-size: 60vw;
   color: rgba(255, 231, 188, 0.4);
   background-image: url("../images/hero-image-siri.jpg");
   background-size: 130vw;
@@ -293,10 +292,16 @@ header, section, footer, .content-area, main {
   background-position: bottom 50% right 65%;
   background-clip: text;
   -webkit-background-clip: text;
-  top: -130px;
+  top: -10vw;
   right: -2%;
 }
 
+@media screen and (min-width: 768px) {
+  .siri-title {
+    font-size: 63vw;
+    letter-spacing: -30px;
+  }
+}
 /* Promo Card
 ==============================================*/
 .standard-promo {

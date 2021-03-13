@@ -18,7 +18,7 @@
 $primary-color: rgba(0, 0, 0, 0.9);
 $title-color: #FF7E35;
 $secondary-color: #eee;
-$headings-font: stolzl, serif;
+$headings-font: 'Stolzl', sans-serif;
 $hero-title: 'Roboto', sans-serif;
 $body-font: stolzl, sans-serif;
 $mobile-padding: 16px;
@@ -39,10 +39,6 @@ body, p {
     line-height: 3rem;
 }
 
-main {
-    max-width: 1500px;
-    margin: 0 auto;
-}
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -91,6 +87,9 @@ input, .input {
 ==============================================*/
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
@@ -98,6 +97,7 @@ input, .input {
     &__heading { 
         margin-top: 10vw;
         text-align: center;
+        width: auto;
         max-width: 500px;
         background-color: rgba(255,255,255,0.5);
 
@@ -109,12 +109,13 @@ input, .input {
     }
 
     &__body {
-        display: block;
+        max-width: 500px;
+        text-align: center;
+        margin-top: auto;
         font-family: $body-font;
         font-size: 1.6rem;
         line-height: 3rem; 
     }
-
 }
 
 
@@ -177,7 +178,7 @@ header, section, footer, .content-area, main {
         align-self: center;
 
         .logo-type {
-            color:$secondary-color;
+            color:$title-color;
         }
     }
 
@@ -249,9 +250,7 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .hero {
     position: relative;
-    display:block;
     top: 0;
-    height: 150vh;
 
     &__wrapper {
         display: grid;
@@ -269,7 +268,6 @@ header, section, footer, .content-area, main {
     @include tablet-portrait {
 
         &__wrapper {
-            z-index: 100;
             height: 88vh;
             align-content: center;
         }
@@ -291,12 +289,12 @@ header, section, footer, .content-area, main {
 
 .siri-title {
     position: absolute;
+    display:block;
+    top: 0;
     margin: 0;
     z-index: -1;
     font-family: $hero-title;
-    //font-weight: 900;
-    font-size: 63vw;
-    letter-spacing: -30px;
+    font-size: 60vw;
     color: rgba(255, 231, 188, 0.4);
     background-image: url("../images/hero-image-siri.jpg");
     background-size: 130vw;
@@ -306,8 +304,16 @@ header, section, footer, .content-area, main {
     background-position: bottom 50% right 65%;
     background-clip: text;
     -webkit-background-clip: text; //important!
-    top:-130px; //-12%
+    top:-10vw;
     right: -2%;
+  
+}
+
+@include tablet-portrait {
+    .siri-title {
+        font-size: 63vw;
+        letter-spacing: -30px;
+    }
 }
 
 /* Promo Card
