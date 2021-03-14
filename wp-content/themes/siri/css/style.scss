@@ -314,8 +314,8 @@ header, section, footer, .content-area, main {
     position: absolute;
     display: block;
     margin: 0 auto;
-    top:-10vw;
-    left: -10em;// important -10vw
+    top:-.2em;
+    //left: -.2em;// important -10vw
     z-index: -1;
     letter-spacing: -10px;
     font-family: $hero-title;
@@ -337,6 +337,7 @@ header, section, footer, .content-area, main {
         text-align: center;
         font-size: 55em;
         letter-spacing: -32px;
+        transform: translateX(-0.2em);
     }
 }
 
