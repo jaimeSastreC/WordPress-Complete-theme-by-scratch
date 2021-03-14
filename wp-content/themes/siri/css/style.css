@@ -39,6 +39,12 @@ body, p {
   line-height: 3rem;
 }
 
+.container {
+  display: block;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   color: #FF7E35;
@@ -102,7 +108,6 @@ input, .input {
 .wrapper__heading {
   margin-top: 10vw;
   text-align: center;
-  width: auto;
   max-width: 500px;
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -114,7 +119,7 @@ input, .input {
 .wrapper__body {
   max-width: 500px;
   text-align: center;
-  margin-top: auto;
+  padding-top: -30em;
   font-family: stolzl, sans-serif;
   font-size: 1.6rem;
   line-height: 3rem;
@@ -154,6 +159,8 @@ header, section, footer, .content-area, main {
 ==============================================*/
 .main-header {
   display: grid;
+  max-width: 1280px;
+  margin: 0 auto;
   z-index: 100;
   gap: 10px;
   grid-template: "nav logo tools ";
@@ -243,18 +250,18 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
-  position: relative;
-  top: 0;
+  display: flex;
+  flex-direction: column;
 }
 .hero__wrapper {
   display: grid;
   z-index: 2;
   height: 32vh;
   text-decoration: none;
-  align-content: end;
+  align-content: start;
 }
 .hero__wrapper h1 {
-  margin: 20px;
+  margin: 20px 0;
   z-index: 10;
 }
 @media screen and (min-width: 768px) {
@@ -264,41 +271,57 @@ header, section, footer, .content-area, main {
   }
 }
 .hero .round {
+  position: absolute;
+  justify-self: center;
   height: 150vw;
   width: 100vw;
-  position: absolute;
+  max-width: 1200px;
   z-index: -1;
   top: 0;
-  left: -1vw;
-  right: 0;
+  transform: translate(-10px, 0);
   background-image: url(round.svg);
   background-position-x: -27vw;
   background-size: 150vw;
   color: rgba(255, 231, 188, 0.1);
 }
 
-.siri-back {
+#siri__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: rgba(238, 92, 92, 0.602);
+  text-align: center;
+}
+
+#siri-back {
   position: absolute;
   display: block;
+  margin: 0 auto;
   top: -10vw;
-  left: -10vw;
+  left: -10em;
   z-index: -1;
+  letter-spacing: -10px;
   font-family: "Roboto", sans-serif;
-  font-size: 60vw;
+  font-size: 50vw;
   color: rgba(255, 231, 188, 0.4);
   background-image: url("../images/hero-image-siri.jpg");
   background-size: 130vw;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
-  background-position: bottom 50% right 67%;
+  background-position: bottom 50% right 63%;
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 @media screen and (min-width: 768px) {
-  .siri-title {
-    font-size: 64vw;
-    letter-spacing: -30px;
+  #siri-back {
+    display: block;
+    text-align: center;
+    font-size: 55em;
+    letter-spacing: -32px;
   }
 }
 /* Promo Card
@@ -363,6 +386,9 @@ header, section, footer, .content-area, main {
 }
 
 /* Shop Section */
+.shop-section {
+  display: block;
+}
 .shop-section__heading, .shop-section__body {
   text-align: center;
 }

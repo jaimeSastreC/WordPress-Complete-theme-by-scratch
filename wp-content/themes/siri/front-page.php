@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
 <header class="hero">
-    <h1 class="siri-back">SIRI</h1>
+    <div id="siri__wrapper">
+        <h1 id="siri-back">SIRI</h1>
+    </div>
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
             <?php if(have_posts()): ?>
