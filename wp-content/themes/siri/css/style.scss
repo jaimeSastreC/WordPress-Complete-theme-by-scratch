@@ -43,6 +43,8 @@ body, p {
     display:  block;
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,11 +70,14 @@ h2 { font-size: 2.8rem; }
 a:link {
     color: $primary-color;
     &:hover {
-        color: rgba(0,0,0,0.6);
+        color: rgba(236, 202, 140, 0.863);
     }
 }
 
-a:visited, a:active { color: $primary-color; }
+a:visited, a:active { 
+    color: $primary-color;
+    // shadow 
+ }
 
 /* Inputs */
 input, .input {
@@ -94,10 +99,15 @@ input, .input {
 .wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-content: center;
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
+
+    &__body { 
+        display: none;
+    }
+
 
     &__heading { 
         margin-top: 10vw;
@@ -112,13 +122,17 @@ input, .input {
         }
     }
 
-    &__body {
-        max-width: 500px;
-        text-align: center;
-        padding-top: -30em;
-        font-family: $body-font;
-        font-size: 1.6rem;
-        line-height: 3rem; 
+    @include tablet-portrait {
+        &__body {
+            display: block;
+            max-width: 500px;
+            margin-top: 20vh;
+            border: solid 12px;
+            text-align: center;
+            font-family: $body-font;
+            font-size: 1.6rem;
+            line-height: 3rem; 
+        }
     }
 }
 
@@ -165,7 +179,7 @@ header, section, footer, .content-area, main {
     z-index: 100;
     gap: 10px;
     grid-template: 
-    'nav logo tools '
+    'nav logo tools'
     ;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 18px;
@@ -257,15 +271,18 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
-    display: flex;
+    //display: block;
     flex-direction: column;
+    justify-content: center;
+    height: auto;
 
     &__wrapper {
         display: grid;
         z-index: 2;
         height: 32vh;
         text-decoration: none;
-        align-content: start;
+        //align-content: start;
+        justify-content: space-between;
 
         h1 {
             margin: 20px 0;
@@ -279,6 +296,8 @@ header, section, footer, .content-area, main {
             height: 88vh;
             align-content: center;  
         }
+
+        &_text {border:none;}
     }
 
     .round {
@@ -298,7 +317,6 @@ header, section, footer, .content-area, main {
 }
 
 #siri__wrapper {
-    display: flex;
     width: 100%;
     height: 100%;
     max-width: 1280px;
@@ -306,27 +324,23 @@ header, section, footer, .content-area, main {
     padding: 0;
     background-color: rgba(238, 92, 92, 0.602);
     text-align: center;
-    
 }
 
 
 #siri-back {
     position: absolute;
-    display: block;
-    margin: 0 auto;
+    margin: 10vh auto;
     top:-.2em;
-    //left: -.2em;// important -10vw
     z-index: -1;
     letter-spacing: -10px;
     font-family: $hero-title;
-    font-size: 50vw;
+    font-size: 12em;
     color: rgba(255, 231, 188, 0.4);
     background-image: url("../images/hero-image-siri.jpg");
-    background-size: 130vw;
+    background-size: 1.7em;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
-    //background-position: bottom -120px right -220px;
-    background-position: bottom 50% right 63%;
+    background-position: bottom 50% right max(-150%, -1em);
     background-clip: text;
     -webkit-background-clip: text; //important!
 }
@@ -334,10 +348,10 @@ header, section, footer, .content-area, main {
 @include tablet-portrait {
     #siri-back {
         display: block;
-        text-align: center;
-        font-size: 55em;
+        font-size: min(62vw, 52em);
         letter-spacing: -32px;
         transform: translateX(-0.2em);
+        background-position: bottom 50% right -220%;
     }
 }
 
@@ -406,6 +420,10 @@ header, section, footer, .content-area, main {
     &__heading, &__body {
         text-align: center;
     }
+}
+
+.shop-section-1 {
+    margin-top: 20vh;
 }
 
 
@@ -484,7 +502,7 @@ footer {
 
             &__body { display: block; }
             &__heading {
-                justify-content: start;
+                justify-content: center;
                 align-items: center;
 
                 svg {

@@ -37,12 +37,12 @@
 
 </section> -->
 
-<section class="shop-section">
+<section class="shop-section shop-section-1">
     <h2 class="shop-section__heading"> Best Courses</h2>
     <p class="shop-section__body">My best Courses. They have most success<br /> with happy results.</p>
     <div class="items">
         <?php /* echo do_shortcode('[best_selling_products category = "Language Level I" limit = "4"]'); */ ?>
-        <?php echo do_shortcode('[best_selling_products limit="3"]'); ?>
+        <?php echo do_shortcode('[best_selling_products limit="4"]'); ?>
     </div>
 </section>
 

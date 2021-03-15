@@ -43,6 +43,8 @@ body, p {
   display: block;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0;
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -75,7 +77,7 @@ a:link {
   color: rgba(0, 0, 0, 0.9);
 }
 a:link:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(236, 202, 140, 0.863);
 }
 
 a:visited, a:active {
@@ -100,10 +102,13 @@ input, .input {
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-content: center;
   margin: 0 auto;
   width: 100%;
   max-width: 1280px;
+}
+.wrapper__body {
+  display: none;
 }
 .wrapper__heading {
   margin-top: 10vw;
@@ -116,13 +121,17 @@ input, .input {
   letter-spacing: 0.2rem;
   margin-bottom: 10px;
 }
-.wrapper__body {
-  max-width: 500px;
-  text-align: center;
-  padding-top: -30em;
-  font-family: stolzl, sans-serif;
-  font-size: 1.6rem;
-  line-height: 3rem;
+@media screen and (min-width: 768px) {
+  .wrapper__body {
+    display: block;
+    max-width: 500px;
+    margin-top: 20vh;
+    border: solid 12px;
+    text-align: center;
+    font-family: stolzl, sans-serif;
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
 }
 
 .button {
@@ -163,7 +172,7 @@ header, section, footer, .content-area, main {
   margin: 0 auto;
   z-index: 100;
   gap: 10px;
-  grid-template: "nav logo tools ";
+  grid-template: "nav logo tools";
   grid-template-columns: repeat(3, 1fr);
   padding: 0 18px;
   background-color: white;
@@ -250,15 +259,16 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
-  display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: auto;
 }
 .hero__wrapper {
   display: grid;
   z-index: 2;
   height: 32vh;
   text-decoration: none;
-  align-content: start;
+  justify-content: space-between;
 }
 .hero__wrapper h1 {
   margin: 20px 0;
@@ -268,6 +278,9 @@ header, section, footer, .content-area, main {
   .hero__wrapper {
     height: 88vh;
     align-content: center;
+  }
+  .hero_text {
+    border: none;
   }
 }
 .hero .round {
@@ -286,7 +299,6 @@ header, section, footer, .content-area, main {
 }
 
 #siri__wrapper {
-  display: flex;
   width: 100%;
   height: 100%;
   max-width: 1280px;
@@ -298,19 +310,18 @@ header, section, footer, .content-area, main {
 
 #siri-back {
   position: absolute;
-  display: block;
-  margin: 0 auto;
+  margin: 10vh auto;
   top: -0.2em;
   z-index: -1;
   letter-spacing: -10px;
   font-family: "Roboto", sans-serif;
-  font-size: 50vw;
+  font-size: 12em;
   color: rgba(255, 231, 188, 0.4);
   background-image: url("../images/hero-image-siri.jpg");
-  background-size: 130vw;
+  background-size: 1.7em;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
-  background-position: bottom 50% right 63%;
+  background-position: bottom 50% right max(-150%, -1em);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -318,10 +329,10 @@ header, section, footer, .content-area, main {
 @media screen and (min-width: 768px) {
   #siri-back {
     display: block;
-    text-align: center;
-    font-size: 55em;
+    font-size: min(62vw, 52em);
     letter-spacing: -32px;
     transform: translateX(-0.2em);
+    background-position: bottom 50% right -220%;
   }
 }
 /* Promo Card
@@ -393,6 +404,10 @@ header, section, footer, .content-area, main {
   text-align: center;
 }
 
+.shop-section-1 {
+  margin-top: 20vh;
+}
+
 /* Newsletter */
 .newsletter {
   display: grid;
@@ -458,7 +473,7 @@ footer {
     display: block;
   }
   .footer-container__heading {
-    justify-content: start;
+    justify-content: center;
     align-items: center;
   }
   .footer-container__heading svg {
