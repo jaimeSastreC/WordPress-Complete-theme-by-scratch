@@ -13,14 +13,22 @@
                         <h1><?php the_title(); ?></h1>
                     </div>
                     <div class="wrapper__body hero_text">
-                        <div class="button button-white">COURSES</div>
                         <?php the_content(); ?>
+                        <div class="button button-white">COURSES</div>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
     </a>
-    <div class="round"></div>
+
+<!--     <div class="round">
+        <svg  xmlns="http://www.w3.org/2000/svg" version="1.1" height='100%' width='100%' >
+            <title>round for background design</title>
+            Instructions
+            <circle r="450" cx="100" cy="270" stroke="null" fill="#ffa954" />
+        </svg>
+    </div> -->
+
 </header>
 
 <!-- <section class="standard-promo">

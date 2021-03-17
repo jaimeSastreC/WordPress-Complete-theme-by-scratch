@@ -40,7 +40,6 @@ body, p {
 }
 
 .container {
-    display:  block;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0;
@@ -97,20 +96,17 @@ input, .input {
 ==============================================*/
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin: 0 auto;
-    width: 100%;
     max-width: 1280px;
+    padding: 0 5vw;
 
     &__body { 
-        display: none;
+        width: 100%;
     }
 
 
     &__heading { 
-        margin-top: 10vw;
+        width: 100%;
+        margin: 0 auto;
         text-align: center;
         max-width: 500px;
         background-color: rgba(255,255,255,0.5);
@@ -118,16 +114,24 @@ input, .input {
         span {
             display: block;
             letter-spacing: 0.2rem;
-            margin-bottom: 10px;
+            margin: 10px;
         }
     }
 
     @include tablet-portrait {
+        
+        &__heading {
+            margin: 0;
+            margin-bottom: 200px;
+
+            span {
+                margin-top: min(10vw,100px);
+                padding-top: 1em;
+            }
+        }
+
         &__body {
-            display: block;
-            max-width: 500px;
-            margin-top: 20vh;
-            border: solid 12px;
+            max-width: 600px;
             text-align: center;
             font-family: $body-font;
             font-size: 1.6rem;
@@ -135,7 +139,6 @@ input, .input {
         }
     }
 }
-
 
 .button {
     display: inline-block;
@@ -271,70 +274,66 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
-    //display: block;
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
+    position: relative;
+    padding-top: 60px;
+    justify-content: start;
 
     &__wrapper {
         display: grid;
         z-index: 2;
-        height: 32vh;
         text-decoration: none;
-        //align-content: start;
-        justify-content: space-between;
-
+        align-content: center;
+        
         h1 {
-            margin: 20px 0;
-            z-index: 10; 
+            z-index: 5; 
         }
     }
 
     @include tablet-portrait {
+        height:80vh;
+        padding-top: O;
+        padding-bottom: min(0vh);
 
         &__wrapper {
-            height: 88vh;
-            align-content: center;  
+            align-content: start;
         }
-
-        &_text {border:none;}
     }
 
     .round {
         position: absolute;
         justify-self: center;
-        height: 150vw;
-        width: 100vw;
+        height: 100vh;
+        width: auto;
         max-width: 1200px;
         z-index: -1;
         top:0;
-        transform: translate(-10px, 0);
+        //transform: translate(-10px, 0);
         background-image: url(round.svg);
-        background-position-x: -27vw;
-        background-size: 150vw;
-        color: rgba(255, 231, 188, 0.1);
+        background-size: 100vh;
+        background-color: rgba(9, 255, 0, 0.1);
+        //background-color: rgba(238, 92, 92, 0.602);
     }
 }
 
+#round__form {
+    width: 3000px;
+}
+
 #siri__wrapper {
-    width: 100%;
-    height: 100%;
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    background-color: rgba(238, 92, 92, 0.602);
     text-align: center;
+    background-color: mediumorchid;
 }
 
 
 #siri-back {
     position: absolute;
-    margin: 10vh auto;
-    top:-.2em;
     z-index: -1;
     letter-spacing: -10px;
     font-family: $hero-title;
-    font-size: 12em;
+    font-size: 20em;
     color: rgba(255, 231, 188, 0.4);
     background-image: url("../images/hero-image-siri.jpg");
     background-size: 1.7em;
@@ -348,9 +347,10 @@ header, section, footer, .content-area, main {
 @include tablet-portrait {
     #siri-back {
         display: block;
+        top:-.2em;
         font-size: min(62vw, 52em);
         letter-spacing: -32px;
-        transform: translateX(-0.2em);
+        transform: translateX(-0.2em);//check right 0.2em
         background-position: bottom 50% right -220%;
     }
 }
@@ -423,7 +423,9 @@ header, section, footer, .content-area, main {
 }
 
 .shop-section-1 {
-    margin-top: 20vh;
+    @include tablet-portrait {
+        margin-top: 40vh;
+    }
 }
 
 
