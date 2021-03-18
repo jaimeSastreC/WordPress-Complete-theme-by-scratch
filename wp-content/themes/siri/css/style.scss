@@ -43,7 +43,20 @@ body, p {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0;
+    z-index: -5;
     text-align: center;
+    background: url(./round.svg);
+    background-size: 67%;
+    background-repeat: repeat-y;
+    background-position: right 0 top -20%;
+    background-blend-mode: color;
+
+
+    #circle {
+        z-index: -5;
+        fill:#FAA95E;
+        fill-opacity:0.7;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -299,24 +312,6 @@ header, section, footer, .content-area, main {
         }
     }
 
-    .round {
-        position: absolute;
-        justify-self: center;
-        height: 100vh;
-        width: auto;
-        max-width: 1200px;
-        z-index: -1;
-        top:0;
-        //transform: translate(-10px, 0);
-        background-image: url(round.svg);
-        background-size: 100vh;
-        background-color: rgba(9, 255, 0, 0.1);
-        //background-color: rgba(238, 92, 92, 0.602);
-    }
-}
-
-#round__form {
-    width: 3000px;
 }
 
 #siri__wrapper {
