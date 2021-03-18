@@ -43,7 +43,6 @@ body, p {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0;
-    z-index: -5;
     text-align: center;
     background: url(./round.svg);
     background-size: 67%;
@@ -51,11 +50,8 @@ body, p {
     background-position: right 0 top -20%;
     background-blend-mode: color;
 
-
     #circle {
-        z-index: -5;
-        fill:#FAA95E;
-        fill-opacity:0.7;
+        //options
     }
 }
 
@@ -419,7 +415,7 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
     @include tablet-portrait {
-        margin-top: 40vh;
+        margin-top: 200px;
     }
 }
 
