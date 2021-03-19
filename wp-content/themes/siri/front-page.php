@@ -20,18 +20,43 @@
             <?php endif; ?>
         </div>
     </a>
-
-<!--     <div class="round">
-        <svg  xmlns="http://www.w3.org/2000/svg" version="1.1" id="wrapper__circle" width="450" height="900" >
-            <title>round for background design</title>
-            Instructions
-            <circle id="circle" r="450" cx="480" cy="380" stroke="null" />
-        </svg>
-    </div> -->
-
 </header>
 
+<section class="shop-section">
+    <h2 class="shop-section__heading">My Courses</h2>
+    <p class="shop-section__body">My actual Courses<br />It's time to explore!</p>
+    <div class="items">
+    <?php echo do_shortcode('[products limit="3" orderbyid="id" order"DESC"]'); ?>
+    </div>
+</section>
 
+<!-- <section class="shop-section shop-section-1">
+    <header>
+        <h2 class="shop-section__heading"> Best Courses</h2>
+        <p class="shop-section__body">My best Courses. They have most success<br /> with happy results.</p>
+    </header>
+        <div class="items">
+        <?php /* echo do_shortcode('[best_selling_products category = "Language Level I" limit = "4"]'); */ ?>
+        <?php //echo do_shortcode('[best_selling_products limit="4"]'); ?>
+    </div>
+</section> -->
+
+<section class="about-section shop-section-1">
+    <div class="section__wrapper">
+        <div class="split">
+            <div>
+                <!-- <img src="<?php //echo get_template_directory_uri().'/images/IMG_1571-300x300.jpg';?>" alt="me, a spanish teacher"> -->
+                <img src="<?php echo get_template_directory_uri().'/images/IMG_1571.jpg';?>" alt="me, a spanish teacher">
+            </div>
+            <div class="text__wrapper">
+                <header>
+                    <h2 class="about__heading">Learn with Video Conference</h2>
+                </header>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla doloremque temporibus incidunt voluptate ratione vel.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- <section class="standard-promo">
     
@@ -47,22 +72,8 @@
 
 </section> -->
 
-<section class="shop-section shop-section-1">
-    <h2 class="shop-section__heading"> Best Courses</h2>
-    <p class="shop-section__body">My best Courses. They have most success<br /> with happy results.</p>
-    <div class="items">
-        <?php /* echo do_shortcode('[best_selling_products category = "Language Level I" limit = "4"]'); */ ?>
-        <?php echo do_shortcode('[best_selling_products limit="4"]'); ?>
-    </div>
-</section>
 
-<section class="shop-section">
-    <h2 class="shop-section__heading">New Proposals</h2>
-    <p class="shop-section__body">New arrivals. Updated regularly.<br />It's time to explore!</p>
-    <div class="items">
-        <?php echo do_shortcode('[products limit="3" orderbyid="id" order"DESC"]'); ?>
-    </div>
-</section>
+
 
 <section class="newsletter">
 
@@ -70,7 +81,7 @@
         Sign up to Siri's newsletter and
         get updates about my latest <strong>"visitors language travels proposals"</strong>.
     </h1>
-    <!-- [wpforms id="586" title="false"] -->
+
    <?php 
         if(shortcode_exists('wpforms')) {
             echo do_shortcode('[wpforms id=48 title="false"]');

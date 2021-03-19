@@ -26,7 +26,7 @@ $desktop-padding: 36px;
 
 /* Main
 ==============================================*/
-// rem becomes 10px !!
+// 1 rem becomes 10px !! 
 html { font-size: 62.5%; }
 
 body, p {
@@ -50,9 +50,6 @@ body, p {
     background-position: right 0 top -20%;
     background-blend-mode: color;
 
-    #circle {
-        //options
-    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -100,16 +97,62 @@ input, .input {
     color:blue;
 }
 
+img {
+    display:block;
+    height: auto;
+    width: 100%;
+}
+
 
 /* Layout Elements
 ==============================================*/
+.split {
+    display: flex;
+    flex-direction: column;
 
+    @include tablet-portrait {
+            flex-direction: row;
+
+    
+        & > * {
+            flex-basis: 100%;
+        }
+    
+        & > * + * {
+            margin-left: 2em;
+        }
+    }
+}
+
+.split > * + * {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.section__wrapper {
+    margin-inline: auto;
+}
+
+.text__wrapper {
+    margin: 0;
+    padding: 2em 0;
+    border: 25px solid rgb(24, 24, 24);
+    background-color: darkcyan;
+
+    p {
+        padding: 0 2em;
+        text-align: center;
+    }
+}
+
+/*==============================================*/
 .wrapper {
     max-width: 1280px;
     padding: 0 5vw;
 
     &__body { 
         width: 100%;
+        background-color: rgba(255,255,255,0.5)
     }
 
 
@@ -145,6 +188,7 @@ input, .input {
             font-family: $body-font;
             font-size: 1.6rem;
             line-height: 3rem; 
+            background-color: transparent;
         }
     }
 }
@@ -176,9 +220,6 @@ header, section, footer, .content-area, main {
         padding: $desktop-padding;
     }
 }
-
-
-
 
 
 /* Header
@@ -299,9 +340,8 @@ header, section, footer, .content-area, main {
     }
 
     @include tablet-portrait {
-        height:80vh;
         padding-top: O;
-        padding-bottom: min(0vh);
+        padding-bottom: min(10vh);
 
         &__wrapper {
             align-content: start;
@@ -415,8 +455,14 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
     @include tablet-portrait {
-        margin-top: 200px;
+        //margin-top: 100px;
     }
+}
+
+/* About Section */
+.about-section {
+    padding:0;
+    
 }
 
 

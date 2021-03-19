@@ -50,6 +50,7 @@ body, p {
   background-position: right 0 top -20%;
   background-blend-mode: color;
 }
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   color: #FF7E35;
@@ -100,14 +101,58 @@ input, .input {
   color: blue;
 }
 
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 /* Layout Elements
 ==============================================*/
+.split {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .split {
+    flex-direction: row;
+  }
+  .split > * {
+    flex-basis: 100%;
+  }
+  .split > * + * {
+    margin-left: 2em;
+  }
+}
+
+.split > * + * {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.section__wrapper {
+  margin-inline: auto;
+}
+
+.text__wrapper {
+  margin: 0;
+  padding: 2em 0;
+  border: 25px solid #181818;
+  background-color: darkcyan;
+}
+.text__wrapper p {
+  padding: 0 2em;
+  text-align: center;
+}
+
+/*==============================================*/
 .wrapper {
   max-width: 1280px;
   padding: 0 5vw;
 }
 .wrapper__body {
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .wrapper__heading {
   width: 100%;
@@ -136,6 +181,7 @@ input, .input {
     font-family: stolzl, sans-serif;
     font-size: 1.6rem;
     line-height: 3rem;
+    background-color: transparent;
   }
 }
 
@@ -279,9 +325,8 @@ header, section, footer, .content-area, main {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 80vh;
     padding-top: O;
-    padding-bottom: min(0vh);
+    padding-bottom: min(10vh);
   }
   .hero__wrapper {
     align-content: start;
@@ -391,10 +436,9 @@ header, section, footer, .content-area, main {
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
-  .shop-section-1 {
-    margin-top: 200px;
-  }
+/* About Section */
+.about-section {
+  padding: 0;
 }
 
 /* Newsletter */
