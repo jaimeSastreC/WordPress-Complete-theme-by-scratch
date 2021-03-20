@@ -22,9 +22,13 @@
     </a>
 </header>
 
-<section class="shop-section">
-    <h2 class="shop-section__heading">My Courses</h2>
-    <p class="shop-section__body">My actual Courses<br />It's time to explore!</p>
+<section class="shop-section shop-section-1">
+    <h2 class="shop-section__heading"><?php the_field('shop-section__title'); ?></h2>
+    <p class="shop-section__body">
+        <?php 
+            $shop_description = get_field('shop-section__description');
+            echo nl2br($shop_description); 
+        ?></p>
     <div class="items">
     <?php echo do_shortcode('[products limit="3" orderbyid="id" order"DESC"]'); ?>
     </div>
@@ -45,14 +49,24 @@
     <div class="section__wrapper">
         <div class="split">
             <div>
-                <!-- <img src="<?php //echo get_template_directory_uri().'/images/IMG_1571-300x300.jpg';?>" alt="me, a spanish teacher"> -->
-                <img src="<?php echo get_template_directory_uri().'/images/IMG_1571.jpg';?>" alt="me, a spanish teacher">
+                <!-- IMG_1571-300x300.jpg -->
+                <!-- <img src="<?php //echo get_template_directory_uri().'/images/IMG_1571.jpg';?>" alt="me, a spanish teacher"> -->
+                <?php 
+                    $image = get_field('about-me__picture');
+                    //var_dump($image);
+                    $aboutMe__picture = $image['sizes']['medium_large'];
+                ?>
+                <img src="<?php echo $aboutMe__picture; ?>" alt="me, a spanish teacher">
             </div>
             <div class="text__wrapper">
                 <header>
-                    <h2 class="about__heading">Learn with Video Conference</h2>
+                    <h2 class="about__heading"><?php the_field('about-me__title'); ?></h2>
                 </header>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla doloremque temporibus incidunt voluptate ratione vel.</p>
+                
+                <p><?php 
+                    $aboutMe__text = get_field('about-me__text');
+                    echo nl2br($aboutMe__text);        
+                ?></p>
             </div>
         </div>
     </div>
@@ -78,8 +92,7 @@
 <section class="newsletter">
 
     <h1 class="newsletter__heading">
-        Sign up to Siri's newsletter and
-        get updates about my latest <strong>"visitors language travels proposals"</strong>.
+        <?php the_field('newsletter__title'); ?>
     </h1>
 
    <?php 
