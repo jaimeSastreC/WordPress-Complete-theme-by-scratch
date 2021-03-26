@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <header class="hero">
-    <div id="siri__wrapper">
-        <h1 id="siri-back">SIRI</h1>
+    <div id="wrapper__heading">
+            <h1 id="siri-back">SIRI</h1>
     </div>
     <a href="#" class="hero__wrapper">
         <div class="wrapper">
@@ -14,7 +14,9 @@
                     </div>
                     <div class="wrapper__body hero_text">
                         <?php the_content(); ?>
-                        <div class="button button-white">COURSES</div>
+                        <a href="<?php echo site_url()."/?post_type=product"; ?>">
+                            <div class="button button-white">COURSES</div>
+                        </a>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
@@ -97,7 +99,7 @@
 
    <?php 
         if(shortcode_exists('wpforms')) {
-            echo do_shortcode('[wpforms id=48 title="false"]');
+            echo do_shortcode('[wpforms id=49 title="false"]'); //49 prod 48 local
         }
    ?>
 <!--     <form class="form" action="https://raddy.us20.list-manage.com/subscribe/post?u=c12aafb941c4276911b0d5cd3&amp;id=839b42c955" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">

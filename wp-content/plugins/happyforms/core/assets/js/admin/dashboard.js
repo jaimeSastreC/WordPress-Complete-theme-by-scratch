@@ -5,7 +5,7 @@
 
 	happyForms.dashboard = {
 		init: function() {
-			$( '.happyforms-editor-button' ).on( 'click', this.onEditorButton.bind( this ) );
+			$( document ).on( 'click', '.happyforms-editor-button', this.onEditorButton.bind( this ) );
 			$( '.happyforms-dialog__button' ).on( 'click', this.onDialogButton.bind( this ) );
 			$( '.happyforms-notice:not(.one-time)' ).on( 'click', '.notice-dismiss', this.onNoticeDismiss.bind( this ) );
 		},

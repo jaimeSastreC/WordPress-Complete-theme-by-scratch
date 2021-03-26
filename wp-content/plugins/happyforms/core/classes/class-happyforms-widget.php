@@ -84,6 +84,7 @@ class HappyForms_Widget extends WP_Widget {
 			<select class="widefat" id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>">
 				<?php
 				$forms = happyforms_get_form_controller()->get();
+				$forms = array_values( wp_list_filter( $forms, array( 'post_status' => 'publish' ) ) );
 
 				foreach ( $forms as $form ) {
 					echo '<option value="'. $form['ID'] .'" '. selected( (int) $instance['form_id'] === (int) $form['ID'] ) .'">'. $form['post_title'] .'</option>';
