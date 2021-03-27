@@ -51,12 +51,14 @@
                         </a>
                     </div>
 
-                    <div class="copyright__body"> <?php echo date('Y');?> Jaime Sastre. &copy;</div>
+                    <div class="copyright__body">&copy; 2021 Jaime Sastre.</div>
                 </div> 
             </footer>
         </div>                        
 
             <?php wp_footer(); ?>
-        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="<?php echo get_template_directory_uri().'/js/fittext.js';?> "></script>                        
+        <script src="<?php echo get_template_directory_uri().'/js/myjs.js';?> "></script>
     </body>
 </html>

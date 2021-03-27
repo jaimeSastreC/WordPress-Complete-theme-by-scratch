@@ -788,11 +788,6 @@ class HappyForms_Form_Controller {
 			return $html;
 		}
 
-		// Prevent rendering in preview screen from 3rd party plugins.
-		if ( happyforms_is_preview() && doing_action() ) {
-			return $html;
-		}
-
 		ob_start();
 
 		happyforms_get_form_assets()->output( $form, $asset_mode );

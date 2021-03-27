@@ -14,8 +14,6 @@
     wp_enqueue_style('custom_css');
     wp_enqueue_style('stolsl_cdn');
     wp_enqueue_style('playfair_cdn');
-
-    wp_enqueue_script('main-scripts', get_template_directory_uri(). '/js/myjs.js', array(), '1.0', true);
  }
 
  /* Creating Customer menus */

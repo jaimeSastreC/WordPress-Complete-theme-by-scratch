@@ -40,7 +40,6 @@ body, p {
 }
 
 .container {
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0;
@@ -91,15 +90,15 @@ a:visited, a:active {
 
 /* Inputs */
 input, .input {
-  border: none !important;
-  background-image: none !important;
-  background-color: transparent !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-  padding: 16px !important;
-  box-sizing: border-box !important;
-  color: blue !important;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  box-sizing: border-box;
+  color: blue;
 }
 
 img {
@@ -138,8 +137,8 @@ img {
 .text__wrapper {
   margin: 0;
   padding: 2em 0;
-  border: 25px solid black;
-  background-color: #96D5B6;
+  border: 25px solid #181818;
+  background-color: darkcyan;
 }
 .text__wrapper p {
   padding: 0 2em;
@@ -168,9 +167,6 @@ img {
   margin: 10px;
 }
 @media screen and (min-width: 768px) {
-  .wrapper {
-    padding-left: 1em;
-  }
   .wrapper__heading {
     margin: 0;
     margin-bottom: 200px;
@@ -190,23 +186,23 @@ img {
 }
 
 .button {
-  display: inline-block !important;
-  color: rgba(0, 0, 0, 0.9) !important;
-  margin-top: 20px !important;
-  padding: 5px 16px !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  font-size: 1.2rem !important;
-  border: 2px solid rgba(0, 0, 0, 0.9) !important;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.9);
+  margin-top: 20px;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid rgba(0, 0, 0, 0.9);
 }
 @media screen and (min-width: 768px) {
   .button {
-    font-size: 1.6rem !important;
+    font-size: 1.6rem;
   }
 }
 
 .button-white {
-  background-color: #fff !important;
+  background-color: #fff;
 }
 
 header, section, footer, .content-area, main {
@@ -225,15 +221,17 @@ header, section, footer, .content-area, main {
   display: grid;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 5px 18px;
+  z-index: 100;
+  gap: 10px;
+  grid-template: "nav logo tools";
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 18px;
+  background-color: white;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
-  gap: 10px;
-  grid-template: "nav logo tools";
-  grid-template-columns: 1fr 40vw 1fr;
-  background-color: #fff;
 }
 .main-header a {
   text-decoration: none;
@@ -241,8 +239,8 @@ header, section, footer, .content-area, main {
 }
 .main-header__logo {
   grid-area: logo;
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: 2.4rem;
+  font-weight: 600;
   justify-self: center;
   align-self: center;
 }
@@ -255,16 +253,13 @@ header, section, footer, .content-area, main {
   align-self: center;
 }
 .main-header__nav .menu {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  z-index: 1;
-  background-color: #fff;
+  display: none;
   padding: 0;
   list-style: none;
 }
 .main-header__nav .menu .menu-item {
-  width: 100vw;
+  display: inline-block;
+  padding: 0 32px;
 }
 .main-header__nav .menu-link {
   width: 2.4rem;
@@ -277,7 +272,7 @@ header, section, footer, .content-area, main {
   right: 0;
   display: block;
   height: 0.2rem;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: black;
 }
 .main-header__nav .menu-link span:first-child {
   top: 0;
@@ -296,10 +291,9 @@ header, section, footer, .content-area, main {
 @media screen and (min-width: 768px) {
   .main-header {
     grid-template: "logo nav tools";
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0);
   }
   .main-header__logo {
-    font-size: 3rem;
     justify-self: start;
   }
   .main-header__nav {
@@ -307,13 +301,6 @@ header, section, footer, .content-area, main {
   }
   .main-header__nav .menu {
     display: block;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  .main-header__nav .menu .menu-item {
-    display: inline-block;
-    width: auto;
-    padding: 0 32px;
   }
   .main-header__nav .menu-link {
     display: none;
@@ -323,9 +310,8 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
-  display: flex;
   position: relative;
-  padding-top: 10px;
+  padding-top: 60px;
   justify-content: start;
 }
 .hero__wrapper {
@@ -347,18 +333,25 @@ header, section, footer, .content-area, main {
   }
 }
 
+#siri__wrapper {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: mediumorchid;
+}
+
 #siri-back {
   position: absolute;
-  top: -20px;
   z-index: -1;
   letter-spacing: -10px;
   font-family: "Roboto", sans-serif;
-  font-size: 12em;
+  font-size: 20em;
   color: rgba(255, 231, 188, 0.4);
   background-image: url("../images/hero-image-siri.jpg");
-  background-size: cover;
+  background-size: 1.7em;
   background-blend-mode: overlay;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-position: bottom 50% right max(-150%, -1em);
   background-clip: text;
   -webkit-background-clip: text;
@@ -366,12 +359,11 @@ header, section, footer, .content-area, main {
 
 @media screen and (min-width: 768px) {
   #siri-back {
-    top: -0.25em;
+    display: block;
+    top: -0.2em;
     font-size: min(62vw, 52em);
     letter-spacing: -32px;
-    background-size: min(100%, 1.7em);
-    background-repeat: no-repeat;
-    transform: translateX(-0.21em);
+    transform: translateX(-0.2em);
     background-position: bottom 50% right -220%;
   }
 }
@@ -468,22 +460,19 @@ header, section, footer, .content-area, main {
   }
 }
 
-.form {
-  margin: 0 0 10px 0 !important;
-}
 .form__email {
-  width: 100% !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9) !important;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
 }
 .form__submit {
-  width: 100% !important;
+  width: 100%;
 }
 
 /* Footer */
 footer {
   background-color: #c8c8c8;
   margin-top: 3em;
-  color: #fff;
+  color: #eee;
 }
 
 .footer {
@@ -491,7 +480,7 @@ footer {
   gap: 20px;
 }
 .footer a:link {
-  color: #fff;
+  color: #eee;
 }
 @media screen and (min-width: 768px) {
   .footer {
@@ -535,21 +524,6 @@ footer {
 }
 .copyright__body {
   margin: 20px 0 0;
-}
-
-/* Page Hero */
-.page-hero {
-  display: grid;
-  margin: 1em 0;
-  width: 100%;
-  height: 60vh;
-  background-color: #ececec;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  justify-items: center;
-  align-items: center;
-  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

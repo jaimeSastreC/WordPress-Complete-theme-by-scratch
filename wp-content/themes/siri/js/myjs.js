@@ -1,20 +1,3 @@
-jQuery(document).ready(function() {
-    if (jQuery(window).width() < 768) {
-        jQuery(".main-header__nav .menu").css("display","none");
-    }
+console.log("say Hi");
 
-    jQuery('.menu-link').click(function(){
-        jQuery('.menu').toggle('slow', function(){
-
-        });
-    });
-});
-
-/* 
-jQuery(document).ready(function() {
-    jQuery ('.menu-link').click(function(){
-        jQuery('.menu').toggle('slow', function(){
-
-        });
-    });
-}); */
+// $("#siri-back").fitText(.3);

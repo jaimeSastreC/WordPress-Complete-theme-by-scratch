@@ -403,8 +403,7 @@
 /* submit button */
 
 .happyforms-styles input[type=submit].happyforms-button--submit,
-.happyforms-styles input[type=submit][disabled].happyforms-button--submit,
-.happyforms-styles input[type=submit]:not(:hover):not(:active):not(.has-background) {
+.happyforms-styles input[type=submit][disabled].happyforms-button--submit {
   -webkit-appearance: none;
   height: auto;
   padding: 15px 30px;
