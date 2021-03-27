@@ -5,7 +5,7 @@
  * Plugin URI:  https://happyforms.io
  * Description: We're changin' WordPress forms.
  * Author:      Happyforms
- * Version:     1.12.0
+ * Version:     1.12.1
  * Author URI:  https://happyforms.io
  * Upgrade URI: https://happyforms.io/upgrade
  */
@@ -13,7 +13,7 @@
 /**
  * The current version of the plugin.
  */
-define( 'HAPPYFORMS_VERSION', '1.12.0' );
+define( 'HAPPYFORMS_VERSION', '1.12.1' );
 
 if ( ! function_exists( 'happyforms_plugin_file' ) ):
 /**

@@ -5,7 +5,7 @@ Tags: contact form, contact form plugin, forms, form builder, custom form, intak
 Requires at least: 4.8
 Tested up to: 5.7
 Requires PHP: 5.3
-Stable tag: 1.12.0
+Stable tag: 1.12.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,11 @@ Abso-freakin-lutely! We’re always checking to make sure HappyForms plays nicel
 Note: you'll need to upgrade to our paid contact form builder plugin to get some of the best goodies mentioned here.
 
 == Changelog ==
+
+= 1.12.1 =
+* Improvement: Better compatibility with 3rd party popups.
+* Bugfix: Form couldn't be added to ACF rich text editor fields.
+* Bugfix: Trashed and deleted forms where showing up in form widget.
 
 = 1.12.0 =
 * Improvement: Removed jQuery deprecations.
@@ -762,6 +767,9 @@ Note: you'll need to upgrade to our paid contact form builder plugin to get some
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.12.1 =
+* Minor improvements and bugfixes.
 
 = 1.12.0 =
 * jQuery deprecation updates.

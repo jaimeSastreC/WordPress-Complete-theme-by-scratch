@@ -17,7 +17,7 @@
 ==============================================*/
 $primary-color: rgba(0, 0, 0, 0.9);
 $title-color: #FF7E35;
-$secondary-color: #eee;
+$secondary-color: #fff;
 $headings-font: 'Stolzl', sans-serif;
 $hero-title: 'Roboto', sans-serif;
 $body-font: stolzl, sans-serif;
@@ -40,6 +40,7 @@ body, p {
 }
 
 .container {
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0;
@@ -86,15 +87,15 @@ a:visited, a:active {
 
 /* Inputs */
 input, .input {
-    border: none;
-    background-image: none;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    padding: 16px;
-    box-sizing: border-box;
-    color:blue;
+    border: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    color:blue !important;
 }
 
 img {
@@ -136,8 +137,8 @@ img {
 .text__wrapper {
     margin: 0;
     padding: 2em 0;
-    border: 25px solid rgb(24, 24, 24);
-    background-color: darkcyan;
+    border: 25px solid black;
+    background-color: #96D5B6;
 
     p {
         padding: 0 2em;
@@ -171,6 +172,7 @@ img {
     }
 
     @include tablet-portrait {
+        padding-left: 1em;        
         
         &__heading {
             margin: 0;
@@ -194,22 +196,22 @@ img {
 }
 
 .button {
-    display: inline-block;
-    color: $primary-color;
-    margin-top: 20px;
-    padding: 5px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border: 2px solid $primary-color;
+    display: inline-block !important;
+    color: $primary-color !important;
+    margin-top: 20px !important;
+    padding: 5px 16px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    font-size: 1.2rem !important;
+    border: 2px solid $primary-color !important;
 
     @include tablet-portrait {
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
     }
 }
 
 .button-white {
-    background-color: #fff;
+    background-color: $secondary-color !important;
 }
 
 header, section, footer, .content-area, main {
@@ -229,24 +231,21 @@ header, section, footer, .content-area, main {
     display: grid;
     max-width: 1280px;
     margin: 0 auto;
-    z-index: 100;
-    gap: 10px;
-    grid-template: 
-    'nav logo tools'
-    ;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 18px;
-    background-color: rgba(255,255,255,1);
-    position: absolute;
+    padding: 5px 18px;
     top:0; left: 0; right: 0;
     z-index: 1;
+    gap: 10px;
+    grid-template: 
+    'nav logo tools';
+    grid-template-columns: 1fr 40vw 1fr; //repeat(3, 1fr);
+    background-color: $secondary-color;
 
     a { text-decoration: none; font-weight: 400; }
 
     &__logo {
         grid-area: logo;
-        font-size: 2.4rem;
-        font-weight: 600;
+        font-size: 2rem;
+        font-weight: 900;
         justify-self: center;
         align-self: center;
 
@@ -261,13 +260,16 @@ header, section, footer, .content-area, main {
         align-self: center;
 
         .menu { 
-            display: none;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            z-index: 1;
+            background-color: $secondary-color;
             padding: 0;
             list-style: none;
 
             .menu-item {
-                display: inline-block;
-                padding: 0 32px;
+                width: 100vw;
             }
         }
 
@@ -281,7 +283,7 @@ header, section, footer, .content-area, main {
                 left: 0; right: 0;
                 display: block;
                 height: 0.2rem;
-                background-color: rgba(0,0,0,1);
+                background-color: $primary-color;
 
                 &:first-child { top: 0; }
                 &:last-child { bottom: 0; }
@@ -302,18 +304,28 @@ header, section, footer, .content-area, main {
 
     @include tablet-portrait {
         grid-template: 
-        'logo nav tools'
-        ;
-        background-color: rgba(255,255,255,0);
+        'logo nav tools';
+        background-color: transparent;
 
         &__logo {
+            font-size: 3rem;
             justify-self: start;
         }
 
         &__nav {
             justify-self: center;
 
-            .menu { display: block; }
+            .menu { 
+                display: block;
+                position: relative;
+                background-color: rgba(255, 255, 255, 0.2);
+
+                .menu-item {
+                    display: inline-block;
+                    width: auto;
+                    padding: 0 32px;
+                }
+            }
             .menu-link { display: none; }
         }
     }
@@ -324,8 +336,9 @@ header, section, footer, .content-area, main {
 /* Hero
 ==============================================*/
 .hero {
+    display: flex;
     position: relative;
-    padding-top: 60px;
+    padding-top: 10px;
     justify-content: start;
 
     &__wrapper {
@@ -350,26 +363,18 @@ header, section, footer, .content-area, main {
 
 }
 
-#siri__wrapper {
-    max-width: 1280px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: mediumorchid;
-}
-
-
 #siri-back {
     position: absolute;
+    top:-20px;
     z-index: -1;
     letter-spacing: -10px;
     font-family: $hero-title;
-    font-size: 20em;
+    font-size: 12em;
     color: rgba(255, 231, 188, 0.4);
     background-image: url("../images/hero-image-siri.jpg");
-    background-size: 1.7em;
+    background-size: cover;
     background-blend-mode: overlay;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: bottom 50% right max(-150%, -1em);
     background-clip: text;
     -webkit-background-clip: text; //important!
@@ -377,12 +382,13 @@ header, section, footer, .content-area, main {
 
 @include tablet-portrait {
     #siri-back {
-        display: block;
-        top:-.2em;
+        top:-.25em;
         font-size: min(62vw, 52em);
         letter-spacing: -32px;
-        transform: translateX(-0.2em);//check right 0.2em
-        background-position: bottom 50% right -220%;
+        background-size: min(100%, 1.7em);
+        background-repeat: no-repeat;
+        transform: translateX(-0.21em);//check right 0.2em
+        background-position: bottom 50% right -220%; 
     }
 }
 
@@ -455,7 +461,6 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
     @include tablet-portrait {
-        //margin-top: 100px;
     }
 }
 
@@ -480,20 +485,24 @@ header, section, footer, .content-area, main {
         font-style: italic;
     }
 
+    
+
     @include tablet-portrait {
         grid-template-columns: 2fr 1fr;
     }
 }
 
+//todo check margin in form
 .form {
+    margin: 0 0 10px 0 !important;
+
     &__email {
-        width: 100%;
-        //margin-bottom: 20px;
-        border-bottom: 1px solid $primary-color;
+        width: 100%  !important;
+        border-bottom: 1px solid $primary-color !important;
     }
 
     &__submit {
-        width: 100%;
+        width: 100% !important;
     }
 }
 
@@ -563,4 +572,25 @@ footer {
     }
  
     &__body { margin: 20px 0 0; }
+}
+
+/* Page Hero */
+.page-hero {
+    display: grid;
+    margin: 1em 0;
+    width: 100%;
+    height: 60vh;
+    background-color: #ececec;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-items: center;
+    align-items: center;
+    color: $secondary-color;
+
+    &__heading { 
+        @include tablet-portrait {
+
+        }
+    }
 }

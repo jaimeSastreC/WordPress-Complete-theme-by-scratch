@@ -3,6 +3,7 @@
 class HappyForms_Form_Assets {
 
 	private static $instance;
+	private static $hooked = false;
 
 	const MODE_NONE = 0;
 	const MODE_ADMIN = 1;
@@ -10,12 +11,24 @@ class HappyForms_Form_Assets {
 	const MODE_CUSTOMIZER = 4;
 	const MODE_COMPLETE = 8;
 
+	private $forms = array();
+
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
 
+		self::$instance->hook();
+
 		return self::$instance;
+	}
+
+	public function hook() {
+		if ( self::$hooked ) {
+			return;
+		}
+
+		add_action( 'wp_print_footer_scripts', array( $this, 'wp_print_footer_scripts' ), 0 );
 	}
 
 	public function output_frontend_styles( $form ) {
@@ -29,7 +42,7 @@ class HappyForms_Form_Assets {
 		<?php
 	}
 
-	public function output_frontend_scripts( $form ) {
+	private function get_frontend_script_dependencies( $forms ) {
 		wp_register_script(
 			'happyforms-select',
 			happyforms_get_plugin_url() . 'core/assets/js/lib/happyforms-select.js',
@@ -46,21 +59,27 @@ class HappyForms_Form_Assets {
 
 		$dependencies = apply_filters(
 			'happyforms_frontend_dependencies',
-			array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip', 'happyforms-settings' ), [ $form ]
+			array( 'jquery', 'jquery-ui-core', 'jquery-ui-tooltip', 'happyforms-settings' ), $forms
 		);
 
-		wp_register_script(
-			'happyforms-frontend',
-			happyforms_get_plugin_url() . 'inc/assets/js/frontend.js',
-			$dependencies, HAPPYFORMS_VERSION, true
-		);
+		return $dependencies;
+	}
 
+	public function output_frontend_scripts( $form ) {
 		if ( wp_doing_ajax() ) {
 			global $wp_scripts;
 
 			add_filter( 'script_loader_tag', function( $tag, $handle, $src ) {
 				return '';
 			}, 10, 3 );
+
+			$dependencies = $this->get_frontend_script_dependencies( [ $form ] );
+
+			wp_register_script(
+				'happyforms-frontend',
+				happyforms_get_plugin_url() . 'inc/assets/js/frontend.js',
+				$dependencies, HAPPYFORMS_VERSION, true
+			);
 
 			wp_scripts()->all_deps( 'happyforms-frontend' );
 
@@ -114,13 +133,11 @@ class HappyForms_Form_Assets {
 				enqueueNextScript();
 			</script>
 			<?php
+
+			do_action( 'happyforms_print_scripts', [ $form ] );
 		} else {
-			wp_scripts()->print_scripts( 'happyforms-frontend' );
+			$this->forms[] = $form;
 		}
-
-		wp_deregister_script( 'happyforms-frontend' );
-
-		do_action( 'happyforms_print_scripts', [ $form ] );
 	}
 
 	public function output( $form, $mode = self::MODE_COMPLETE ) {
@@ -162,12 +179,36 @@ class HappyForms_Form_Assets {
 			$dependencies, HAPPYFORMS_VERSION
 		);
 
-		wp_styles()->do_items( 'happyforms-layout' );
+		$dependencies[] = 'happyforms-layout';
 
-		wp_deregister_style( 'happyforms-layout' );
+		global $wp_styles;
+
+		foreach( $dependencies as $dependency ) {
+			if ( isset( $wp_styles->registered[$dependency] ) ) {
+				$stylesheet_url = $wp_styles->registered[$dependency]->src;
+				?><link rel="stylesheet" property="stylesheet" href="<?php echo $stylesheet_url; ?>" /><?php
+			}
+		}
 
 		do_action( 'happyforms_print_frontend_styles', $form );
 	}
+
+	public function wp_print_footer_scripts() {
+		if ( empty( $this->forms ) ) {
+			return;
+		}
+
+		$dependencies = $this->get_frontend_script_dependencies( $this->forms );
+
+		wp_enqueue_script(
+			'happyforms-frontend',
+			happyforms_get_plugin_url() . 'inc/assets/js/frontend.js',
+			$dependencies, HAPPYFORMS_VERSION, true
+		);
+
+		do_action( 'happyforms_print_scripts', $this->forms );
+	}
+
 }
 
 if ( ! function_exists( 'happyforms_get_form_assets' ) ):
