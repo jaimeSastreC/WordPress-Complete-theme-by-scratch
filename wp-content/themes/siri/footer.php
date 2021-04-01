@@ -53,6 +53,7 @@
 
                     <div class="copyright__body"> <?php echo date('Y');?> Jaime Sastre. &copy;</div>
                 </div> 
+
             </footer>
         </div>                        
 

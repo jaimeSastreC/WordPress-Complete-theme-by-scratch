@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 .woocommerce {
   margin: 1em 0;
 }
@@ -55,7 +55,7 @@ body, p {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   color: #FF7E35;
-  font-family: "Stolzl", sans-serif;
+  font-family: "Work Sans", sans-serif;
   line-height: 1em;
 }
 
@@ -308,7 +308,7 @@ header, section, footer, .content-area, main {
   .main-header__nav .menu {
     display: block;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.7);
   }
   .main-header__nav .menu .menu-item {
     display: inline-block;
@@ -339,8 +339,8 @@ header, section, footer, .content-area, main {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    padding-top: O;
-    padding-bottom: min(10vh);
+    padding-top: 1em;
+    padding-bottom: min(0vh);
   }
   .hero__wrapper {
     align-content: start;
@@ -444,6 +444,12 @@ header, section, footer, .content-area, main {
   text-align: center;
 }
 
+@media screen and (min-width: 768px) {
+  .shop-section-1 {
+    padding: 30vh 0;
+  }
+}
+
 /* About Section */
 .about-section {
   padding: 0;
@@ -452,6 +458,7 @@ header, section, footer, .content-area, main {
 /* Newsletter */
 .newsletter {
   display: grid;
+  padding: 10vh 0;
   align-items: center;
   gap: 20px;
 }
@@ -465,6 +472,7 @@ header, section, footer, .content-area, main {
 @media screen and (min-width: 768px) {
   .newsletter {
     grid-template-columns: 2fr 1fr;
+    padding-right: 10vh;
   }
 }
 

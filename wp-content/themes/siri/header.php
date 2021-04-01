@@ -4,6 +4,7 @@
     <meta charset= "<?php bloginfo('charset'); ?>" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="pingback" href="<?php bloginfo('pingbacl_url'); ?>">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <title><?php bloginfo('name');?></title>
     <!-- WP info for css Js title -->
     <?php wp_head(); ?> 

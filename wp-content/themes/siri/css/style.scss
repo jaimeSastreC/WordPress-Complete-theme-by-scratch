@@ -1,7 +1,7 @@
 @import 'woocommerce';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 @import "_breakpoints.scss";
 
 
@@ -18,8 +18,8 @@
 $primary-color: rgba(0, 0, 0, 0.9);
 $title-color: #FF7E35;
 $secondary-color: #fff;
-$headings-font: 'Stolzl', sans-serif;
-$hero-title: 'Roboto', sans-serif;
+$headings-font: 'Work Sans', sans-serif;
+$hero-title: 'Roboto', sans-serif; 
 $body-font: stolzl, sans-serif;
 $mobile-padding: 16px;
 $desktop-padding: 36px;
@@ -318,7 +318,7 @@ header, section, footer, .content-area, main {
             .menu { 
                 display: block;
                 position: relative;
-                background-color: rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, .7);
 
                 .menu-item {
                     display: inline-block;
@@ -353,8 +353,8 @@ header, section, footer, .content-area, main {
     }
 
     @include tablet-portrait {
-        padding-top: O;
-        padding-bottom: min(10vh);
+        padding-top: 1em;
+        padding-bottom: min(0vh);
 
         &__wrapper {
             align-content: start;
@@ -461,6 +461,7 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
     @include tablet-portrait {
+        padding: 30vh 0;
     }
 }
 
@@ -474,6 +475,7 @@ header, section, footer, .content-area, main {
 /* Newsletter */
 .newsletter {
     display: grid;
+    padding: 10vh 0;
     align-items: center;
     gap: 20px;
 
@@ -489,6 +491,7 @@ header, section, footer, .content-area, main {
 
     @include tablet-portrait {
         grid-template-columns: 2fr 1fr;
+        padding-right: 10vh;
     }
 }
 

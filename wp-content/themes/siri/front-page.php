@@ -9,13 +9,13 @@
             <?php if(have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
                     <div class="wrapper__heading">
-                        <span><?php bloginfo('description');?></span>
                         <h1><?php the_title(); ?></h1>
+                        <span><?php bloginfo('description');?></span>
                     </div>
                     <div class="wrapper__body hero_text">
                         <?php the_content(); ?>
                         <a href="<?php echo site_url()."/?post_type=product"; ?>">
-                            <div class="button button-white">COURSES</div>
+                            <div class="button button-white">Classes</div>
                         </a>
                     </div>
                 <?php endwhile; ?>
@@ -32,7 +32,7 @@
             echo nl2br($shop_description); 
         ?></p>
     <div class="items">
-    <?php echo do_shortcode('[products limit="3" orderbyid="id" order"DESC"]'); ?>
+    <?php echo do_shortcode('[products limit="3" orderbyid="id" order="DESC"]'); ?>
     </div>
 </section>
 
