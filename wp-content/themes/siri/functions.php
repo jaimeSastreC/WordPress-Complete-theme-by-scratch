@@ -61,6 +61,14 @@
 
  add_action('wp_enqueue_scripts', 'woocommerce_custom_theme');
 
- 
+ /* WooCommerce modify cart button */
 
- 
+ add_filter('woocommerce_product_single_add_to_cart_text','custom_single_add_to_cart_button_woocommerce');
+function custom_single_add_to_cart_button_woocommerce() {
+return __('buy/kaufen/comprar ', 'woocommerce');
+}
+
+add_filter('woocommerce_product_add_to_cart_text','custom_add_to_cart_button_woocommerce');
+function custom_add_to_cart_button_woocommerce() {
+return __('buy/kaufen/comprar ', 'woocommerce');
+}

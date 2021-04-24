@@ -16,7 +16,7 @@
                     <div class="wrapper__body hero_text">
                         <?php the_content(); ?>
                         <a href="<?php echo site_url()."/?post_type=product"; ?>">
-                            <div class="button button-white">Classes</div>
+                            <div class="button button-white">Clases</div>
                         </a>
                     </div>
                 <?php endwhile; ?>

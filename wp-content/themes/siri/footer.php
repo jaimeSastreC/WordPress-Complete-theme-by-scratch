@@ -56,8 +56,12 @@
 
             </footer>
         </div>                        
+        <div style="color:white">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" style="color:white">www.flaticon.com</a></div>
 
             <?php wp_footer(); ?>
+
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1PXNZJEN"></script> -->
+        <!-- optional jquery -> if not loaded by WP -->
         <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
     </body>
 </html>

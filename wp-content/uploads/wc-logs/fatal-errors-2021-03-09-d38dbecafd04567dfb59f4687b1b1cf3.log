@@ -1,8 +1,0 @@
-2021-03-09T12:46:56+00:00 CRITICAL syntax error, unexpected end of file in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\front-page.php on line 70
-
-2021-03-09T14:26:29+00:00 CRITICAL syntax error, unexpected '$id' (T_VARIABLE), expecting ',' or ')' in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\front-page.php on line 37
-
-2021-03-09T14:28:20+00:00 CRITICAL syntax error, unexpected '$id' (T_VARIABLE), expecting ',' or ')' in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\front-page.php on line 37
-
-2021-03-09T15:08:28+00:00 CRITICAL syntax error, unexpected end of file in C:\wamp64\www\tryme\wordpress\wp-content\themes\siri\front-page.php on line 95
-

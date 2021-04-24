@@ -33,7 +33,7 @@
             echo nl2br($shop_description); 
         ?></p>
     <div class="items">
-    <?php echo do_shortcode('[products limit="3" orderbyid="id" order="DESC" category="43"]'); ?>
+    <?php echo do_shortcode('[products limit="3" category="43" orderbyid="id" order="DESC" ]'); ?>
     </div>
 </section>
 
