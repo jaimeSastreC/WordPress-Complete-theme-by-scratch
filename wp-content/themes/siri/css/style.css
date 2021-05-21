@@ -4,23 +4,37 @@
   margin: 1em 0;
 }
 .woocommerce .entry-title {
-  /* margin-top: 1em; */
+  margin-top: 1em;
 }
 .woocommerce .product {
   margin-top: 1.5em;
 }
 
+.product .button {
+  float: none !important;
+  text-align: center !important;
+  background-color: blueviolet;
+}
+.product .woocommerce-tabs * {
+  display: none;
+}
+.product .related products {
+  display: block;
+}
+.product .woocommerce-product-details__short-description p {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
 /*********************
     BREAKPOINTS
 *********************/
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
-} */
-/*********************
-    BREAKPOINTS
-*********************/
+}
+
 /* Veriables
 ==============================================*/
 /* Main
@@ -60,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 
@@ -70,11 +84,11 @@ h2 {
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 9rem;
+    font-size: 4.5rem;
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 /* Links */
@@ -124,15 +138,15 @@ input:hover, .input:hover {
   }
 }
 
-.button-white {
+.button-white, .button {
+  color: rgba(0, 0, 0, 0.9) !important;
   background-color: #fff !important;
-  color: #fff;
   outline: 4px solid rgba(0, 0, 0, 0.9) !important;
   outline-offset: -2px !important;
   transition: outline-offset 1000ms ease !important;
   transition: background-color 1000ms ease !important;
 }
-.button-white:hover, .button-white:focus {
+.button-white:hover, .button-white:focus, .button:hover, .button:focus {
   color: #fff !important;
   background-color: rgba(0, 0, 0, 0.9) !important;
   outline-offset: 4px !important;
@@ -239,6 +253,7 @@ img {
 @media screen and (min-width: 768px) {
   .wrapper {
     padding-top: 12vh;
+    animation: move 3s ease-out;
   }
   .wrapper__heading {
     margin: 0;
@@ -248,6 +263,7 @@ img {
   }
   .wrapper__heading span {
     margin-top: min(10vh, 20px);
+    animation: move__text 6s ease-out;
   }
   .wrapper__body {
     max-width: 600px;
@@ -259,6 +275,26 @@ img {
   }
 }
 
+@keyframes move {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes move__text {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 header, section, footer, .content-area, main {
   margin: 0 auto;
   padding: 16px;
@@ -514,6 +550,9 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
   padding: 10vh 0 0;
+}
+.shop-section-1 .button {
+  display: none !important;
 }
 @media screen and (min-width: 768px) {
   .shop-section-1 {

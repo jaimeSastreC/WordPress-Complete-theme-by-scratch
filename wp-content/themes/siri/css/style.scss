@@ -2,16 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
-@import "_breakpoints.scss";
+@import "breakpoints.scss";
 
 
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
-} */
-
-@import "_breakpoints.scss";
+}
 
 /* Veriables
 ==============================================*/
@@ -26,8 +24,9 @@ $desktop-padding: 36px;
 
 /* Main
 ==============================================*/
-// 1 rem becomes 10px !! 
-html { font-size: 62.5%; }
+//**********************************************
+html { font-size: 62.5%; } // 1 rem becomes 10px !! units like Word, etc.
+//**********************************************
 
 body, p {
     margin: 0;
@@ -49,7 +48,7 @@ body, p {
     background-size: 67%;
     background-repeat: repeat-y;
     background-position: right 0 top -20%;
-    background-blend-mode: color;
+    background-blend-mode: color; //always check different filters to improve
 
 }
 
@@ -61,15 +60,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
 h2 { font-size: 2.8rem; }
 
 @include tablet-portrait {
-    h1 { font-size: 9rem; }
-    h2 { font-size: 3.5rem; }
+    h1 { font-size: 4.5rem; }
+    h2 { font-size: 3rem; }
 } 
 
 /* Links */
@@ -83,7 +82,7 @@ a:hover {
 
 a:active { 
     color: $primary-color !important;
-    // shadow 
+    // shadow ?
  }
 
 /* Inputs */
@@ -122,9 +121,9 @@ input, .input {
     }
 }
 
-.button-white {
+.button-white, .button {
+    color: $primary-color !important;
     background-color: $secondary-color !important;
-    color: $secondary-color;
     outline: 4px solid $primary-color !important;
     outline-offset: -2px !important;
     transition: outline-offset 1000ms ease !important;
@@ -223,6 +222,7 @@ img {
     max-width: 1280px;
     padding: 23vh 5vw 0;
 
+
     &__body { 
         width: 100%;
         background-color: rgba(255,255,255,0.5)
@@ -245,7 +245,7 @@ img {
 
     @include tablet-portrait {
         padding-top: 12vh;
-        //padding-left: 1em;        
+        animation: move 3s ease-out;
         
         &__heading {
             margin: 0;
@@ -254,6 +254,7 @@ img {
 
             span {
                 margin-top: min(10vh,20px);
+                animation: move__text 6s ease-out;
             }
         }
 
@@ -267,6 +268,28 @@ img {
         }
     }
 }
+
+@keyframes move {
+    from {
+        transform: translateY(100vh);
+        opacity: 0; 
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+     }
+  }
+
+  @keyframes move__text {
+    from {
+        transform: translateX(-100vw);
+        opacity: 0; 
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+     }
+  }
 
 header, section, footer, .content-area, main {
     margin: 0 auto;
@@ -535,6 +558,10 @@ header, section, footer, .content-area, main {
 
 .shop-section-1 {
     padding: 10vh 0 0;
+
+    .button {
+        display: none !important;
+    }
 
     @include tablet-portrait {
         padding: 30vh 0 0;

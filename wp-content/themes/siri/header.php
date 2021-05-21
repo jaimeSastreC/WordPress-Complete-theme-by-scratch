@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="pingback" href="<?php bloginfo('pingbacl_url'); ?>">
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y1PXNZJEN"></script>
     <title><?php bloginfo('name');?></title>
     <!-- WP info for css Js title -->
@@ -23,7 +24,7 @@
                 <div class="menu-link">
                     <span></span>
                     <span></span>
-                    <span></span> <!-- Todo: complete css -->
+                    <span></span> <!-- Todo: Option 3rd line css -->
                 </div>
 
                 <?php 

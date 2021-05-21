@@ -2,10 +2,37 @@
     margin: 1em 0;
     
     .entry-title {
-        /* margin-top: 1em; */
+        margin-top: 1em;
     }
 
     .product {
         margin-top: 1.5em;
+    }
+}
+
+// category in product + description 
+.product{
+    .summary .product_meta .posted_in {
+        //display: none;
+        a {}
+    }
+
+    .button {
+        float:none !important;
+        text-align: center !important;
+        background-color: blueviolet;
+    }
+
+    .woocommerce-tabs  * {
+        display: none;
+    }
+
+    .related products {
+        display: block;
+    }
+
+    .woocommerce-product-details__short-description p {
+        font-weight: 500;
+        font-size: 1.8rem;
     }
 }

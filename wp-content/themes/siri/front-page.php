@@ -4,7 +4,7 @@
     <div id="wrapper__heading">
             <h1 id="siri-back">SIRI</h1>
     </div>
-    <a href="#" class="hero__wrapper">
+    <a href="#about-section" class="hero__wrapper">
         <div class="wrapper">
             <?php if(have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
@@ -13,7 +13,7 @@
                         <span><?php the_content(); ?></span>
                     </div>
                     <div class="wrapper__body hero_text">
-                        <a href="<?php echo site_url()."/?post_type=product"; ?>">
+                        <a href="<?php echo site_url()."/?page_id=593"; ?>">
                             <div class="button button-white">Classes</div>
                         </a>
                     </div>
@@ -50,7 +50,7 @@
     </div>
 </section> -->
 
-<section class="about-section shop-section-1">
+<section id="about-section" class="about-section shop-section-1">
     <div class="section__wrapper">
         <div class="split">
             <div>
@@ -154,12 +154,6 @@
             echo do_shortcode('[wpforms id=48 title="false"]'); //49 prod 48 local
         }
    ?>
-<!--     <form class="form" action="https://raddy.us20.list-manage.com/subscribe/post?u=c12aafb941c4276911b0d5cd3&amp;id=839b42c955" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
-        <input class="form__email" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
-        real people should not fill this in and expect good things - do not remove this or risk form bot signups
-        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c12aafb941c4276911b0d5cd3_839b42c955" tabindex="-1" value=""></div>
-        <input class="form__submit button" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
-    </form> -->
 
 </section>
 
