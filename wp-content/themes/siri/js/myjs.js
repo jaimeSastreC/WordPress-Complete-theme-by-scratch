@@ -47,38 +47,51 @@ jQuery(document).ready(function($) {
   });
 
 // Product page: todas las clases/Alle Kurze/All courses
-  $contenu = $('.product .summary .product_meta');
-  $contenu.html($contenu.html()
+  $linkCourses = $('.product .summary .product_meta');
+  $buyButton = $('.single_add_to_cart_button');
+  $buyButton1 = $('.add_to_cart_button');
+
+  $linkCourses.html($linkCourses.html()
     .replace("span", "button")
-    .replace("Category:","")
-  ).children().addClass('button')
-  .prop('text-align', 'center');
+    ).children().addClass('button')
+    .prop('text-align', 'center');
 
-  if ($('.product .summary .product_meta .posted_in:contains("EN")').length > 0) {
-    
-    let text = $contenu.html();
-    console.log(text);
+  let textLink = $linkCourses.html();
+  let textButton = $buyButton1.html();
+  console.log(textLink);
+  console.log(textButton);
 
-    $contenu.html(text.replace('EN', 'All courses'));  
-    //$contenu.html($contenu.html().replace("Category:",""));
+  if (english($)) {
+    $linkCourses.html(textLink.replace('EN', 'All courses'));  
+    $buyButton.html("buy");  
+    $buyButton1.html("buy");  
+  } 
+  else if (german($)) {
+    $linkCourses.html(textLink.replace("DE","Alle Kurse"));
+    $buyButton.html("kaufen");
+    $buyButton1.html("kaufen");
+  } 
+  else if (spanish($)) {
+    $linkCourses.html(textLink.replace("ES","todas las clases"));
+    $buyButton.html("comprar");
+    $buyButton1.html("comprar");
+
   } 
 
-  if ($('.product .summary .product_meta .posted_in:contains("DE")').length > 0) {
-    
-    let text = $contenu.html();
-    console.log(text);
-
-    $contenu.html(text.replace("DE","Alle Kurse"));
-    $contenu.html($contenu.html().replace("Category:",""));
-  } 
-  
-  if ($('.product .summary .product_meta .posted_in:contains("ES")').length > 0) {
-  
-    let text = $contenu.html();
-    console.log(text);
-
-    $contenu.html(text.replace("ES","todas las clases"));
-    $contenu.html($contenu.html().replace("Category:",""));
-  } 
-
+  $linkCourses.html($linkCourses.html().replace("Category:",""));
 });
+
+
+// factorised : check language 
+function english($) {
+  return $('.product .summary .product_meta .posted_in:contains("EN")').length > 0;
+}
+
+function german($) {
+  return $('.product .summary .product_meta .posted_in:contains("DE")').length > 0;
+}
+
+function spanish($) {
+  return $('.product .summary .product_meta .posted_in:contains("ES")').length > 0;
+}
+
