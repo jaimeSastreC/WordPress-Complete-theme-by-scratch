@@ -14,8 +14,6 @@ function onSubmit(token) {
 
 /*************************** my code : ********************************/ 
 
-
-
 jQuery(document).ready(function($) {
   // toggle menu bar + footer menu bar
   if ($(window).width() < 768) {
@@ -75,7 +73,6 @@ jQuery(document).ready(function($) {
     $linkCourses.html(textLink.replace("ES","todas las clases"));
     $buyButton.html("comprar");
     $buyButton1.html("comprar");
-
   } 
 
   $linkCourses.html($linkCourses.html().replace("Category:",""));
